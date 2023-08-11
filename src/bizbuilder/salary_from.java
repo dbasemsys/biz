@@ -52,8 +52,14 @@ public class salary_from extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Employee ID");
 
+        jTextField1.setForeground(new java.awt.Color(102, 102, 255));
+        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Salary Date");
+
+        jTextField2.setForeground(new java.awt.Color(102, 102, 255));
+        jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Salary Credit Date");
@@ -61,13 +67,18 @@ public class salary_from extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Monthly Salary");
 
+        jTextField4.setForeground(new java.awt.Color(102, 102, 255));
+        jTextField4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("EPF");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Payable Salary");
 
+        jTextField6.setForeground(new java.awt.Color(102, 102, 255));
         jTextField6.setText("RS.");
+        jTextField6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
         jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextField6FocusGained(evt);
@@ -77,18 +88,25 @@ public class salary_from extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(102, 102, 255));
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Cancel");
+        jButton4.setFocusPainted(false);
 
+        jButton5.setBackground(new java.awt.Color(102, 102, 255));
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Save");
+        jButton5.setBorderPainted(false);
 
-        rSComboMetro1.setColorArrow(new java.awt.Color(0, 0, 0));
-        rSComboMetro1.setColorBorde(new java.awt.Color(0, 0, 0));
-        rSComboMetro1.setColorFondo(new java.awt.Color(255, 255, 255));
+        rSComboMetro1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        rSComboMetro1.setColorArrow(new java.awt.Color(102, 102, 255));
+        rSComboMetro1.setColorBorde(new java.awt.Color(102, 102, 255));
+        rSComboMetro1.setColorFondo(new java.awt.Color(102, 102, 255));
 
-        rSDateChooser1.setColorBackground(new java.awt.Color(0, 0, 0));
-        rSDateChooser1.setColorForeground(new java.awt.Color(0, 0, 0));
+        rSDateChooser1.setColorBackground(new java.awt.Color(102, 102, 255));
+        rSDateChooser1.setColorForeground(new java.awt.Color(102, 102, 255));
         rSDateChooser1.setPlaceholder("Choose Date");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

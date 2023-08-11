@@ -5,6 +5,9 @@
  */
 package bizbuilder;
 
+import java.awt.Color;
+import static java.awt.Color.gray;
+
 /**
  *
  * @author THANATOS
@@ -28,51 +31,99 @@ public class home_page extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        rSFotoCircle1 = new rojerusan.RSFotoCircle();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        Profile = new rojerusan.RSFotoCircle();
+        Employee = new javax.swing.JLabel();
+        Dashboard = new javax.swing.JLabel();
+        Monthly_Expenses = new javax.swing.JLabel();
+        Customer = new javax.swing.JLabel();
+        Adding = new javax.swing.JLabel();
+        Logout = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1300, 650));
+        setPreferredSize(new java.awt.Dimension(1300, 650));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/employee.png"))); // NOI18N
-        jLabel1.setText("Employee");
+        Employee.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Employee.setForeground(new java.awt.Color(255, 255, 255));
+        Employee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/employee.png"))); // NOI18N
+        Employee.setText("Employee");
+        Employee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Employee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                EmployeeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                EmployeeMouseExited(evt);
+            }
+        });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/dashboard.png"))); // NOI18N
-        jLabel2.setText("Dashboard");
+        Dashboard.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Dashboard.setForeground(new java.awt.Color(255, 255, 255));
+        Dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/dashboard.png"))); // NOI18N
+        Dashboard.setText("Dashboard");
+        Dashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                DashboardMouseExited(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/expense.png"))); // NOI18N
-        jLabel3.setText("Monthly Expenses");
+        Monthly_Expenses.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Monthly_Expenses.setForeground(new java.awt.Color(255, 255, 255));
+        Monthly_Expenses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/expense.png"))); // NOI18N
+        Monthly_Expenses.setText("Monthly Expenses");
+        Monthly_Expenses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Monthly_Expenses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Monthly_ExpensesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Monthly_ExpensesMouseExited(evt);
+            }
+        });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user (1).png"))); // NOI18N
-        jLabel4.setText("Customer");
+        Customer.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Customer.setForeground(new java.awt.Color(255, 255, 255));
+        Customer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user (1).png"))); // NOI18N
+        Customer.setText("Customer");
+        Customer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Customer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CustomerMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CustomerMouseExited(evt);
+            }
+        });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/add.png"))); // NOI18N
-        jLabel5.setText("Adding");
+        Adding.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Adding.setForeground(new java.awt.Color(255, 255, 255));
+        Adding.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/add.png"))); // NOI18N
+        Adding.setText("Adding");
+        Adding.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Adding.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddingMouseExited(evt);
+            }
+        });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logout.png"))); // NOI18N
-        jLabel6.setText("Logout");
-        jLabel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Logout.setBackground(new java.awt.Color(102, 102, 255));
+        Logout.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Logout.setForeground(new java.awt.Color(255, 255, 255));
+        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logout.png"))); // NOI18N
+        Logout.setText("Logout");
+        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,61 +132,119 @@ public class home_page extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(rSFotoCircle1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Adding, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(Customer, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(Employee, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(Dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(Monthly_Expenses, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(99, 99, 99)
+                        .addComponent(Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(Logout)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(rSFotoCircle1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jLabel4)
+                .addGap(72, 72, 72)
+                .addComponent(Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(Customer)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(Employee)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(Dashboard)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(Monthly_Expenses)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(Adding)
+                .addGap(64, 64, 64)
+                .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(354, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 500));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 900));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 650, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 700, 500));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 1000, 650));
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CustomerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseEntered
+        // TODO add your handling code here:
+        Customer.setBackground(new Color(204,204,255));
+        Customer.setOpaque(true);
+    }//GEN-LAST:event_CustomerMouseEntered
+
+    private void CustomerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseExited
+        // TODO add your handling code here:
+        Customer.setBackground(new Color(102,102,255));
+        
+    }//GEN-LAST:event_CustomerMouseExited
+
+    private void EmployeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmployeeMouseEntered
+        // TODO add your handling code here:
+        Employee.setBackground(new Color(204,204,255));
+        Employee.setOpaque(true);
+    }//GEN-LAST:event_EmployeeMouseEntered
+
+    private void EmployeeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmployeeMouseExited
+        // TODO add your handling code here:
+        Employee.setBackground(new Color(102,102,255));
+    }//GEN-LAST:event_EmployeeMouseExited
+
+    private void DashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashboardMouseEntered
+        // TODO add your handling code here:
+        Dashboard.setBackground(new Color(204,204,255));
+        Dashboard.setOpaque(true);
+    }//GEN-LAST:event_DashboardMouseEntered
+
+    private void DashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashboardMouseExited
+        // TODO add your handling code here:
+        Dashboard.setBackground(new Color(102,102,255));
+    }//GEN-LAST:event_DashboardMouseExited
+
+    private void Monthly_ExpensesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Monthly_ExpensesMouseEntered
+        // TODO add your handling code here:
+        Monthly_Expenses.setBackground(new Color(204,204,255));
+        Monthly_Expenses.setOpaque(true);
+    }//GEN-LAST:event_Monthly_ExpensesMouseEntered
+
+    private void Monthly_ExpensesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Monthly_ExpensesMouseExited
+        // TODO add your handling code here:
+        Monthly_Expenses.setBackground(new Color(102,102,255));
+    }//GEN-LAST:event_Monthly_ExpensesMouseExited
+
+    private void AddingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddingMouseEntered
+        // TODO add your handling code here:
+        Adding.setBackground(new Color(204,204,255));
+        Adding.setOpaque(true);
+    }//GEN-LAST:event_AddingMouseEntered
+
+    private void AddingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddingMouseExited
+        // TODO add your handling code here:
+        Adding.setBackground(new Color(102,102,255));
+    }//GEN-LAST:event_AddingMouseExited
 
     /**
      * @param args the command line arguments
@@ -173,14 +282,14 @@ public class home_page extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel Adding;
+    private javax.swing.JLabel Customer;
+    private javax.swing.JLabel Dashboard;
+    private javax.swing.JLabel Employee;
+    private javax.swing.JButton Logout;
+    private javax.swing.JLabel Monthly_Expenses;
+    private rojerusan.RSFotoCircle Profile;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private rojerusan.RSFotoCircle rSFotoCircle1;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

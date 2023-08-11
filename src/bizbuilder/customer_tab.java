@@ -5,6 +5,9 @@
  */
 package bizbuilder;
 
+import java.awt.Color;
+import static java.awt.Color.gray;
+
 /**
  *
  * @author THANATOS
@@ -12,7 +15,7 @@ package bizbuilder;
 public class customer_tab extends javax.swing.JFrame {
 
     /**
-     * Creates new form customer_tab
+     * Creates new form home_page
      */
     public customer_tab() {
         initComponents();
@@ -28,69 +31,255 @@ public class customer_tab extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        rSFotoCircle1 = new rojerusan.RSFotoCircle();
-        jPanel2 = new javax.swing.JPanel();
-        tabpane1 = new bizbuilder.Tabpane();
+        Profile = new rojerusan.RSFotoCircle();
+        Employee = new javax.swing.JLabel();
+        Dashboard = new javax.swing.JLabel();
+        Monthly_Expenses = new javax.swing.JLabel();
+        Customer = new javax.swing.JLabel();
+        Adding = new javax.swing.JLabel();
+        Logout = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        tabpane2 = new bizbuilder.Tabpane();
+        tabpane1 = new bizbuilder.Tabpane();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1300, 650));
+        setPreferredSize(new java.awt.Dimension(1300, 650));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+
+        Employee.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Employee.setForeground(new java.awt.Color(255, 255, 255));
+        Employee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/employee.png"))); // NOI18N
+        Employee.setText("Employee");
+        Employee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Employee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                EmployeeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                EmployeeMouseExited(evt);
+            }
+        });
+
+        Dashboard.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Dashboard.setForeground(new java.awt.Color(255, 255, 255));
+        Dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/dashboard.png"))); // NOI18N
+        Dashboard.setText("Dashboard");
+        Dashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                DashboardMouseExited(evt);
+            }
+        });
+
+        Monthly_Expenses.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Monthly_Expenses.setForeground(new java.awt.Color(255, 255, 255));
+        Monthly_Expenses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/expense.png"))); // NOI18N
+        Monthly_Expenses.setText("Monthly Expenses");
+        Monthly_Expenses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Monthly_Expenses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Monthly_ExpensesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Monthly_ExpensesMouseExited(evt);
+            }
+        });
+
+        Customer.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Customer.setForeground(new java.awt.Color(255, 255, 255));
+        Customer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user (1).png"))); // NOI18N
+        Customer.setText("Customer");
+        Customer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Customer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CustomerMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CustomerMouseExited(evt);
+            }
+        });
+
+        Adding.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Adding.setForeground(new java.awt.Color(255, 255, 255));
+        Adding.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/add.png"))); // NOI18N
+        Adding.setText("Adding");
+        Adding.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Adding.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddingMouseExited(evt);
+            }
+        });
+
+        Logout.setBackground(new java.awt.Color(102, 102, 255));
+        Logout.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Logout.setForeground(new java.awt.Color(255, 255, 255));
+        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logout.png"))); // NOI18N
+        Logout.setText("Logout");
+        Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addComponent(rSFotoCircle1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Adding, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(Customer, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(Employee, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(Dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(Monthly_Expenses, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(Logout)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(rSFotoCircle1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(359, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addComponent(Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(Customer)
+                .addGap(18, 18, 18)
+                .addComponent(Employee)
+                .addGap(18, 18, 18)
+                .addComponent(Dashboard)
+                .addGap(18, 18, 18)
+                .addComponent(Monthly_Expenses)
+                .addGap(18, 18, 18)
+                .addComponent(Adding)
+                .addGap(64, 64, 64)
+                .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(354, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 500));
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 900));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 695, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
-        );
+        tabpane1.setForeground(new java.awt.Color(102, 102, 255));
 
-        tabpane1.addTab("Customer Form", jPanel3);
-        tabpane1.addTab("Customer Details", tabpane2);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabpane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 995, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 604, Short.MAX_VALUE)
+        );
+
+        tabpane1.addTab("Customer Form", jPanel2);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 995, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 604, Short.MAX_VALUE)
+        );
+
+        tabpane1.addTab("Customer Details", jPanel4);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tabpane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tabpane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 700, 500));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 1000, 650));
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CustomerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseEntered
+        // TODO add your handling code here:
+        Customer.setBackground(new Color(204,204,255));
+        Customer.setOpaque(true);
+    }//GEN-LAST:event_CustomerMouseEntered
+
+    private void CustomerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseExited
+        // TODO add your handling code here:
+        Customer.setBackground(new Color(102,102,255));
+        
+    }//GEN-LAST:event_CustomerMouseExited
+
+    private void EmployeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmployeeMouseEntered
+        // TODO add your handling code here:
+        Employee.setBackground(new Color(204,204,255));
+        Employee.setOpaque(true);
+    }//GEN-LAST:event_EmployeeMouseEntered
+
+    private void EmployeeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmployeeMouseExited
+        // TODO add your handling code here:
+        Employee.setBackground(new Color(102,102,255));
+    }//GEN-LAST:event_EmployeeMouseExited
+
+    private void DashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashboardMouseEntered
+        // TODO add your handling code here:
+        Dashboard.setBackground(new Color(204,204,255));
+        Dashboard.setOpaque(true);
+    }//GEN-LAST:event_DashboardMouseEntered
+
+    private void DashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashboardMouseExited
+        // TODO add your handling code here:
+        Dashboard.setBackground(new Color(102,102,255));
+    }//GEN-LAST:event_DashboardMouseExited
+
+    private void Monthly_ExpensesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Monthly_ExpensesMouseEntered
+        // TODO add your handling code here:
+        Monthly_Expenses.setBackground(new Color(204,204,255));
+        Monthly_Expenses.setOpaque(true);
+    }//GEN-LAST:event_Monthly_ExpensesMouseEntered
+
+    private void Monthly_ExpensesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Monthly_ExpensesMouseExited
+        // TODO add your handling code here:
+        Monthly_Expenses.setBackground(new Color(102,102,255));
+    }//GEN-LAST:event_Monthly_ExpensesMouseExited
+
+    private void AddingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddingMouseEntered
+        // TODO add your handling code here:
+        Adding.setBackground(new Color(204,204,255));
+        Adding.setOpaque(true);
+    }//GEN-LAST:event_AddingMouseEntered
+
+    private void AddingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddingMouseExited
+        // TODO add your handling code here:
+        Adding.setBackground(new Color(102,102,255));
+    }//GEN-LAST:event_AddingMouseExited
 
     /**
      * @param args the command line arguments
@@ -118,6 +307,7 @@ public class customer_tab extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(customer_tab.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -128,11 +318,17 @@ public class customer_tab extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Adding;
+    private javax.swing.JLabel Customer;
+    private javax.swing.JLabel Dashboard;
+    private javax.swing.JLabel Employee;
+    private javax.swing.JButton Logout;
+    private javax.swing.JLabel Monthly_Expenses;
+    private rojerusan.RSFotoCircle Profile;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private rojerusan.RSFotoCircle rSFotoCircle1;
+    private javax.swing.JPanel jPanel4;
     private bizbuilder.Tabpane tabpane1;
-    private bizbuilder.Tabpane tabpane2;
     // End of variables declaration//GEN-END:variables
 }
