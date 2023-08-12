@@ -5,17 +5,77 @@
  */
 package bizbuilder;
 
+
 /**
  *
  * @author THANATOS
  */
 public class employee_form extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form employee_form
      */
     public employee_form() {
         initComponents();
+        Work_Status.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+        visibility();
+    }
+});
+
+        jLabel12.setVisible(false);
+        jLabel14.setVisible(false);
+        jLabel15.setVisible(false);
+        jLabel16.setVisible(false);
+        jLabel17.setVisible(false);
+        Work_Status.setVisible(false);
+        Left_Date.setVisible(false);
+        EPF.setVisible(false);
+        EPF_Setteled.setVisible(false);
+        EPF_Pending.setVisible(false);
+        Setteled_Date.setVisible(false);
+    }
+    
+    public void visibility() {
+    String ID = Employee_Id.getText();
+    String Status = (String) Work_Status.getSelectedItem();
+
+    if(ID.equals("")){
+        Work_Status.setVisible(false);
+        jLabel12.setVisible(false);
+
+     if (Status.equals("Left")) {
+        
+        jLabel14.setVisible(true);
+        jLabel15.setVisible(true);
+        jLabel16.setVisible(true);
+        jLabel17.setVisible(true);
+        Left_Date.setVisible(true);
+        EPF.setVisible(true);
+        EPF_Setteled.setVisible(true);
+        EPF_Pending.setVisible(true);
+        Setteled_Date.setVisible(true);
+    } else {
+        jLabel12.setVisible(false);
+        jLabel14.setVisible(false);
+        jLabel15.setVisible(false);
+        jLabel16.setVisible(false);
+        jLabel17.setVisible(false);
+        Left_Date.setVisible(false);
+        EPF.setVisible(false);
+        EPF_Setteled.setVisible(false);
+        EPF_Pending.setVisible(false);
+        Setteled_Date.setVisible(false);
+    }
+    
+
+
+    }
+    else{
+        Work_Status.setVisible(false);
+        jLabel12.setVisible(true);}
+        
     }
 
     /**
@@ -29,40 +89,38 @@ public class employee_form extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Employee_Id = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Profile = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        Work_Role = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        Address = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        Bank = new javax.swing.JTextField();
+        Account_Number = new javax.swing.JTextField();
+        Contact = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        rSComboMetro2 = new rojerusan.RSComboMetro();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        Join_Date = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
+        Left_Date = new javax.swing.JTextField();
+        EPF = new javax.swing.JTextField();
+        Setteled_Date = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jTextField17 = new javax.swing.JTextField();
+        NIC = new javax.swing.JTextField();
+        EPF_Setteled = new javax.swing.JRadioButton();
+        EPF_Pending = new javax.swing.JTextField();
+        Work_Status = new rojerusan.RSComboMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,30 +129,35 @@ public class employee_form extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Employee Id");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Employee_Id.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Employee_Id.setForeground(new java.awt.Color(102, 102, 255));
+        Employee_Id.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Employee_Id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Employee_IdActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Name");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Name.setForeground(new java.awt.Color(102, 102, 255));
+        Name.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Profile");
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Profile.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Profile.setForeground(new java.awt.Color(102, 102, 255));
+        Profile.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Work Role");
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Work_Role.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Work_Role.setForeground(new java.awt.Color(102, 102, 255));
+        Work_Role.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("NIC");
@@ -102,9 +165,9 @@ public class employee_form extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Address");
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Address.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Address.setForeground(new java.awt.Color(102, 102, 255));
+        Address.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Bank Name, Branch");
@@ -127,17 +190,17 @@ public class employee_form extends javax.swing.JFrame {
         jButton5.setText("Save");
         jButton5.setBorderPainted(false);
 
-        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Bank.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Bank.setForeground(new java.awt.Color(102, 102, 255));
+        Bank.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Account_Number.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Account_Number.setForeground(new java.awt.Color(102, 102, 255));
+        Account_Number.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField10.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Contact.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Contact.setForeground(new java.awt.Color(102, 102, 255));
+        Contact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setText("Join Date");
@@ -145,25 +208,12 @@ public class employee_form extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setText("Work Status");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel13.setText("Join Date");
-
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("Left Date");
 
-        rSComboMetro2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Still working", "Left" }));
-        rSComboMetro2.setColorArrow(new java.awt.Color(102, 102, 255));
-        rSComboMetro2.setColorBorde(new java.awt.Color(102, 102, 255));
-        rSComboMetro2.setColorFondo(new java.awt.Color(102, 102, 255));
-        rSComboMetro2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jTextField11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-
-        jTextField12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField12.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Join_Date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Join_Date.setForeground(new java.awt.Color(102, 102, 255));
+        Join_Date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel15.setText("EPF");
@@ -171,34 +221,40 @@ public class employee_form extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel16.setText("EPF Setteled or Not");
 
-        jTextField13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField13.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Left_Date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Left_Date.setForeground(new java.awt.Color(102, 102, 255));
+        Left_Date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jTextField14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField14.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        EPF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        EPF.setForeground(new java.awt.Color(102, 102, 255));
+        EPF.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jTextField15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField15.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Setteled_Date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Setteled_Date.setForeground(new java.awt.Color(102, 102, 255));
+        Setteled_Date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel17.setText("Setteled Date");
 
-        jTextField16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField16.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField16.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        NIC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        NIC.setForeground(new java.awt.Color(102, 102, 255));
+        NIC.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jRadioButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(102, 102, 255));
-        jRadioButton1.setText("Yes");
-        jRadioButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        EPF_Setteled.setBackground(new java.awt.Color(204, 204, 255));
+        EPF_Setteled.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        EPF_Setteled.setForeground(new java.awt.Color(102, 102, 255));
+        EPF_Setteled.setText("Yes");
+        EPF_Setteled.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
 
-        jTextField17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField17.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField17.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        EPF_Pending.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        EPF_Pending.setForeground(new java.awt.Color(102, 102, 255));
+        EPF_Pending.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+
+        Work_Status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Still working", "Left" }));
+        Work_Status.setColorArrow(new java.awt.Color(102, 102, 255));
+        Work_Status.setColorBorde(new java.awt.Color(102, 102, 255));
+        Work_Status.setColorFondo(new java.awt.Color(102, 102, 255));
+        Work_Status.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -219,13 +275,13 @@ public class employee_form extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Work_Role, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Employee_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Bank, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NIC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,45 +293,40 @@ public class employee_form extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(Account_Number, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rSComboMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Work_Status, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Join_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton1)
-                                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(EPF_Setteled)
+                                    .addComponent(EPF, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Left_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Setteled_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel16)
@@ -283,7 +334,7 @@ public class employee_form extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EPF_Pending, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(113, 113, 113))
         );
         jPanel1Layout.setVerticalGroup(
@@ -292,69 +343,65 @@ public class employee_form extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Employee_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Work_Role, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NIC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Bank, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Account_Number, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Join_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(rSComboMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Work_Status, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Left_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EPF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jRadioButton1))
+                    .addComponent(EPF_Setteled))
                 .addGap(11, 11, 11)
-                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EPF_Pending, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Setteled_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -367,20 +414,24 @@ public class employee_form extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(189, 189, 189))
+                .addGap(606, 606, 606))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Employee_IdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Employee_IdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Employee_IdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -415,15 +466,32 @@ public class employee_form extends javax.swing.JFrame {
                 new employee_form().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Account_Number;
+    private javax.swing.JTextField Address;
+    private javax.swing.JTextField Bank;
+    private javax.swing.JTextField Contact;
+    private javax.swing.JTextField EPF;
+    private javax.swing.JTextField EPF_Pending;
+    private javax.swing.JRadioButton EPF_Setteled;
+    private javax.swing.JTextField Employee_Id;
+    private javax.swing.JTextField Join_Date;
+    private javax.swing.JTextField Left_Date;
+    private javax.swing.JTextField NIC;
+    private javax.swing.JTextField Name;
+    private javax.swing.JTextField Profile;
+    private javax.swing.JTextField Setteled_Date;
+    private javax.swing.JTextField Work_Role;
+    private rojerusan.RSComboMetro Work_Status;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -437,22 +505,5 @@ public class employee_form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private rojerusan.RSComboMetro rSComboMetro2;
     // End of variables declaration//GEN-END:variables
 }

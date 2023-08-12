@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="931" max="32767" attributes="0"/>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
           </Group>
@@ -54,6 +54,12 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButton4" min="-2" pref="200" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButton5" min="-2" pref="200" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -67,34 +73,24 @@
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="100" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="scrollpane3" alignment="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField6" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="rSComboMetro1" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="jTextField4" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="jTextField3" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="scrollpane1" alignment="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="jButton1" alignment="0" pref="250" max="32767" attributes="0"/>
-                                          <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="scrollpane2" alignment="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="jTextField7" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
+                              <Component id="Ordering_table" alignment="1" pref="250" max="32767" attributes="0"/>
+                              <Component id="Ordering_exp_table" alignment="0" pref="250" max="32767" attributes="0"/>
+                              <Component id="Date" alignment="1" pref="250" max="32767" attributes="0"/>
+                              <Component id="Service_Type" alignment="1" pref="250" max="32767" attributes="0"/>
+                              <Component id="Phone" alignment="1" pref="250" max="32767" attributes="0"/>
+                              <Component id="Name" alignment="1" pref="250" max="32767" attributes="0"/>
+                              <Component id="Customer_ID" alignment="1" pref="250" max="32767" attributes="0"/>
+                              <Component id="Branch" alignment="1" pref="250" max="32767" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Offered_table" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="Offered_Service" alignment="0" pref="250" max="32767" attributes="0"/>
+                                  <Component id="Ordering_exp" alignment="0" pref="250" max="32767" attributes="0"/>
+                                  <Component id="Ordering_Services" alignment="1" pref="250" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="Price" alignment="1" pref="250" max="32767" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" pref="200" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jButton5" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -107,57 +103,57 @@
                   <EmptySpace pref="33" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Branch" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Customer_ID" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Name" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Phone" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rSComboMetro1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Service_Type" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField6" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Date" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Offered_Service" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="scrollpane1" min="-2" pref="111" max="-2" attributes="0"/>
+                  <Component id="Offered_table" min="-2" pref="111" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Ordering_Services" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="scrollpane2" min="-2" pref="111" max="-2" attributes="0"/>
+                  <Component id="Ordering_table" min="-2" pref="111" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Ordering_exp" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="scrollpane3" min="-2" pref="111" max="-2" attributes="0"/>
+                  <Component id="Ordering_exp_table" min="-2" pref="111" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField7" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="Price" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="40" max="32767" attributes="0"/>
@@ -179,7 +175,7 @@
             <Property name="text" type="java.lang.String" value="Branch"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="Branch">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -204,7 +200,7 @@
             <Property name="text" type="java.lang.String" value="Customer ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="Customer_ID">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -229,7 +225,7 @@
             <Property name="text" type="java.lang.String" value="Customer Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="Name">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -254,7 +250,7 @@
             <Property name="text" type="java.lang.String" value="Phone Number"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="Phone">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -287,7 +283,7 @@
             <Property name="text" type="java.lang.String" value="Service Date"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="Date">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -312,8 +308,15 @@
             <Property name="text" type="java.lang.String" value="Offered service"/>
           </Properties>
         </Component>
-        <Component class="rojerusan.RSComboMetro" name="rSComboMetro1">
+        <Component class="rojerusan.RSComboMetro" name="Service_Type">
           <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="None"/>
+                <StringItem index="1" value="Shop"/>
+                <StringItem index="2" value="Ordering"/>
+              </StringArray>
+            </Property>
             <Property name="colorArrow" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
@@ -328,7 +331,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="Offered_Service">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="66" type="rgb"/>
@@ -343,7 +346,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Container class="bizbuilder.Scrollpane" name="scrollpane1">
+        <Container class="bizbuilder.Scrollpane" name="Offered_table">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
@@ -384,7 +387,7 @@
             <Property name="text" type="java.lang.String" value="Ordering Services"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="Ordering_Services">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="66" type="rgb"/>
@@ -398,8 +401,11 @@
             <Property name="text" type="java.lang.String" value="New"/>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Ordering_ServicesActionPerformed"/>
+          </Events>
         </Component>
-        <Container class="bizbuilder.Scrollpane" name="scrollpane2">
+        <Container class="bizbuilder.Scrollpane" name="Ordering_table">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
@@ -440,7 +446,7 @@
             <Property name="text" type="java.lang.String" value="Ordering Service Expenses"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="Ordering_exp">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="66" type="rgb"/>
@@ -455,7 +461,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Container class="bizbuilder.Scrollpane" name="scrollpane3">
+        <Container class="bizbuilder.Scrollpane" name="Ordering_exp_table">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
@@ -488,7 +494,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextField7">
+        <Component class="javax.swing.JTextField" name="Price">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>

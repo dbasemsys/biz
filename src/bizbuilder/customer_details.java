@@ -14,6 +14,13 @@ public class customer_details extends javax.swing.JFrame {
 
     public customer_details() {
         initComponents();
+        jPanel1.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(false);
+        jLabel9.setVisible(false);
+        Offered_table.setVisible(false);
+        Order_table.setVisible(false);
+        Order_exp_table.setVisible(false);
         rSTableMetro1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -26,7 +33,7 @@ public class customer_details extends javax.swing.JFrame {
             }
         });
     }
-
+    
     private void populateDetailView(int selectedRow) {
         // Retrieve data from the JTable model for the selected row
         if (jTextField1 != null && jTextField2 != null && jTextField3 != null && jTextField4 != null) {
@@ -34,11 +41,29 @@ public class customer_details extends javax.swing.JFrame {
             Object column2 = rSTableMetro1.getValueAt(selectedRow, 1);
             Object column3 = rSTableMetro1.getValueAt(selectedRow, 2);
             Object column4 = rSTableMetro1.getValueAt(selectedRow, 3);
-
+            String Type = (String) rSTableMetro1.getValueAt(selectedRow, 3);
             jTextField1.setText(column1.toString());
             jTextField2.setText(column2.toString());
             jTextField3.setText(column3.toString());
-            jTextField4.setText(column4.toString());
+            Service_Type.setText(column4.toString());
+            if(Type.equals("Shop")){
+        jLabel7.setVisible(true);
+        jLabel8.setVisible(false);
+        jLabel9.setVisible(false);
+        Offered_table.setVisible(true);
+        Order_table.setVisible(false);
+        Order_exp_table.setVisible(false);
+        jPanel1.setVisible(true);
+    
+    }else{
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(true);
+        jLabel9.setVisible(true);
+        Offered_table.setVisible(false);
+        Order_table.setVisible(true);
+        Order_exp_table.setVisible(true);
+        jPanel1.setVisible(true);
+    }
         }
         // Retrieve other data columns similarly
 
@@ -74,29 +99,30 @@ public class customer_details extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        scrollpane3 = new bizbuilder.Scrollpane();
+        Offered_table = new bizbuilder.Scrollpane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        scrollpane4 = new bizbuilder.Scrollpane();
+        Order_exp_table = new bizbuilder.Scrollpane();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jTextField7 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        scrollpane5 = new bizbuilder.Scrollpane();
+        Service_Type = new javax.swing.JTextField();
+        Order_table = new bizbuilder.Scrollpane();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"dfdfsfsd", "sdfdsfsdf", "daf", "asdf"},
-                {"adf", "asdf", "hreh", null},
+                {"dfdfsfsd", "sdfdsfsdf", "daf", "Shop"},
+                {"adf", "asdf", "hreh", "Ordering"},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
@@ -182,7 +208,7 @@ public class customer_details extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        scrollpane3.setViewportView(jScrollPane2);
+        Offered_table.setViewportView(jScrollPane2);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Ordering Services");
@@ -203,16 +229,21 @@ public class customer_details extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTable3);
 
-        scrollpane4.setViewportView(jScrollPane4);
+        Order_exp_table.setViewportView(jScrollPane4);
+
+        jTextField7.setEditable(false);
+        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextField7.setForeground(new java.awt.Color(102, 102, 255));
+        jTextField7.setBorder(null);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Price");
 
-        jTextField5.setEditable(false);
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(102, 102, 255));
-        jTextField5.setToolTipText("");
-        jTextField5.setBorder(null);
+        Service_Type.setEditable(false);
+        Service_Type.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Service_Type.setForeground(new java.awt.Color(102, 102, 255));
+        Service_Type.setToolTipText("");
+        Service_Type.setBorder(null);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -227,11 +258,14 @@ public class customer_details extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable2);
 
-        scrollpane5.setViewportView(jScrollPane3);
+        Order_table.setViewportView(jScrollPane3);
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/edit.png"))); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/edit 16px.png"))); // NOI18N
         jButton1.setText("Edit");
+        jButton1.setBorderPainted(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -262,16 +296,16 @@ public class customer_details extends javax.swing.JFrame {
                                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Service_Type, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrollpane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(scrollpane3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Order_table, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Offered_table, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(scrollpane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(Order_exp_table, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -286,7 +320,7 @@ public class customer_details extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -305,7 +339,7 @@ public class customer_details extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Service_Type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -313,15 +347,15 @@ public class customer_details extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scrollpane3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Offered_table, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollpane5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Order_table, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollpane4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Order_exp_table, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -379,6 +413,10 @@ public class customer_details extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private bizbuilder.Scrollpane Offered_table;
+    private bizbuilder.Scrollpane Order_exp_table;
+    private bizbuilder.Scrollpane Order_table;
+    private javax.swing.JTextField Service_Type;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -402,14 +440,10 @@ public class customer_details extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private rojeru_san.complementos.RSTableMetro rSTableMetro1;
     private bizbuilder.Scrollpane scrollpane1;
     private bizbuilder.Scrollpane scrollpane2;
-    private bizbuilder.Scrollpane scrollpane3;
-    private bizbuilder.Scrollpane scrollpane4;
-    private bizbuilder.Scrollpane scrollpane5;
     // End of variables declaration//GEN-END:variables
 }

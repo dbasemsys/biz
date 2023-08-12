@@ -5,7 +5,6 @@
  */
 package bizbuilder;
 
-import javax.swing.JTextField;
 
 /**
  *
@@ -18,7 +17,71 @@ public class customer_form extends javax.swing.JFrame {
      */
     public customer_form() {
         initComponents();
+        Service_Type.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+        visibility();
+        }
+        });
+        Offered_Service.setVisible(false);
+        Offered_table.setVisible(false);
+        Ordering_Services.setVisible(false);
+        Ordering_table.setVisible(false);
+        Ordering_exp.setVisible(false);
+        Ordering_exp_table.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(false);
+        jLabel9.setVisible(false);
+        jLabel10.setVisible(false);
+        Price.setVisible(false);
+        
+    }   
+     public void visibility() {
+         String Type = (String) Service_Type.getSelectedItem();
+         if(Type.equals("None")){
+            Offered_Service.setVisible(false);
+            Offered_table.setVisible(false);
+            Ordering_Services.setVisible(false);
+            Ordering_table.setVisible(false);
+            Ordering_exp.setVisible(false);
+            Ordering_exp_table.setVisible(false);
+            jLabel7.setVisible(false);
+            jLabel8.setVisible(false);
+            jLabel9.setVisible(false);
+            jLabel10.setVisible(false);
+            Price.setVisible(false);
+            
+         }else {
+            if(Type.equals("Ordering")){
+            Offered_Service.setVisible(false);
+            Offered_table.setVisible(false);
+            jLabel8.setVisible(true);
+            jLabel9.setVisible(true); 
+            Ordering_Services.setVisible(true);
+            Ordering_table.setVisible(true);
+            Ordering_exp.setVisible(true);
+            Ordering_exp_table.setVisible(true);
+            jLabel7.setVisible(false);
+            jLabel10.setVisible(true);
+            Price.setVisible(true);
+            
+         }else{
+            jLabel7.setVisible(true);
+            Offered_Service.setVisible(true);
+            Offered_table.setVisible(true);
+            Ordering_Services.setVisible(false);
+            Ordering_table.setVisible(false);
+            Ordering_exp.setVisible(false);
+            Ordering_exp_table.setVisible(false);
+            jLabel8.setVisible(false);
+            jLabel9.setVisible(false);
+            jLabel10.setVisible(true);
+            Price.setVisible(true);
+            }
+         }
+         
+                
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,33 +94,33 @@ public class customer_form extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Branch = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Customer_ID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        Phone = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        Date = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        rSComboMetro1 = new rojerusan.RSComboMetro();
-        jButton1 = new javax.swing.JButton();
-        scrollpane1 = new bizbuilder.Scrollpane();
+        Service_Type = new rojerusan.RSComboMetro();
+        Offered_Service = new javax.swing.JButton();
+        Offered_table = new bizbuilder.Scrollpane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        scrollpane2 = new bizbuilder.Scrollpane();
+        Ordering_Services = new javax.swing.JButton();
+        Ordering_table = new bizbuilder.Scrollpane();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        scrollpane3 = new bizbuilder.Scrollpane();
+        Ordering_exp = new javax.swing.JButton();
+        Ordering_exp_table = new bizbuilder.Scrollpane();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jTextField7 = new javax.swing.JTextField();
+        Price = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -69,30 +132,30 @@ public class customer_form extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Branch");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(102, 102, 255));
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Branch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Branch.setForeground(new java.awt.Color(102, 102, 255));
+        Branch.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Customer ID");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(102, 102, 255));
-        jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Customer_ID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Customer_ID.setForeground(new java.awt.Color(102, 102, 255));
+        Customer_ID.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Customer Name");
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(102, 102, 255));
-        jTextField3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Name.setForeground(new java.awt.Color(102, 102, 255));
+        Name.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Phone Number");
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(102, 102, 255));
-        jTextField4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Phone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Phone.setForeground(new java.awt.Color(102, 102, 255));
+        Phone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Service Type");
@@ -100,23 +163,24 @@ public class customer_form extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Service Date");
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(102, 102, 255));
-        jTextField6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Date.setForeground(new java.awt.Color(102, 102, 255));
+        Date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Offered service");
 
-        rSComboMetro1.setColorArrow(new java.awt.Color(102, 102, 255));
-        rSComboMetro1.setColorBorde(new java.awt.Color(102, 102, 255));
-        rSComboMetro1.setColorFondo(new java.awt.Color(102, 102, 255));
-        rSComboMetro1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Service_Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Shop", "Ordering" }));
+        Service_Type.setColorArrow(new java.awt.Color(102, 102, 255));
+        Service_Type.setColorBorde(new java.awt.Color(102, 102, 255));
+        Service_Type.setColorFondo(new java.awt.Color(102, 102, 255));
+        Service_Type.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("New");
-        jButton1.setBorderPainted(false);
+        Offered_Service.setBackground(new java.awt.Color(102, 102, 255));
+        Offered_Service.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Offered_Service.setForeground(new java.awt.Color(255, 255, 255));
+        Offered_Service.setText("New");
+        Offered_Service.setBorderPainted(false);
 
         jTable1.setForeground(new java.awt.Color(102, 102, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -133,16 +197,21 @@ public class customer_form extends javax.swing.JFrame {
         jTable1.setGridColor(new java.awt.Color(102, 102, 255));
         jScrollPane2.setViewportView(jTable1);
 
-        scrollpane1.setViewportView(jScrollPane2);
+        Offered_table.setViewportView(jScrollPane2);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Ordering Services");
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 255));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("New");
-        jButton2.setBorderPainted(false);
+        Ordering_Services.setBackground(new java.awt.Color(102, 102, 255));
+        Ordering_Services.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Ordering_Services.setForeground(new java.awt.Color(255, 255, 255));
+        Ordering_Services.setText("New");
+        Ordering_Services.setBorderPainted(false);
+        Ordering_Services.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ordering_ServicesActionPerformed(evt);
+            }
+        });
 
         jTable2.setForeground(new java.awt.Color(102, 102, 255));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -159,16 +228,16 @@ public class customer_form extends javax.swing.JFrame {
         jTable2.setGridColor(new java.awt.Color(102, 102, 255));
         jScrollPane3.setViewportView(jTable2);
 
-        scrollpane2.setViewportView(jScrollPane3);
+        Ordering_table.setViewportView(jScrollPane3);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Ordering Service Expenses");
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 255));
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("New");
-        jButton3.setBorderPainted(false);
+        Ordering_exp.setBackground(new java.awt.Color(102, 102, 255));
+        Ordering_exp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Ordering_exp.setForeground(new java.awt.Color(255, 255, 255));
+        Ordering_exp.setText("New");
+        Ordering_exp.setBorderPainted(false);
 
         jTable3.setForeground(new java.awt.Color(102, 102, 255));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -185,11 +254,11 @@ public class customer_form extends javax.swing.JFrame {
         jTable3.setGridColor(new java.awt.Color(102, 102, 255));
         jScrollPane4.setViewportView(jTable3);
 
-        scrollpane3.setViewportView(jScrollPane4);
+        Ordering_exp_table.setViewportView(jScrollPane4);
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(102, 102, 255));
-        jTextField7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        Price.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Price.setForeground(new java.awt.Color(102, 102, 255));
+        Price.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Price");
@@ -213,6 +282,11 @@ public class customer_form extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
@@ -225,29 +299,22 @@ public class customer_form extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addGap(100, 100, 100)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrollpane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rSComboMetro1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(scrollpane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(scrollpane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Ordering_table, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(Ordering_exp_table, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(Date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(Service_Type, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(Phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(Name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(Customer_ID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(Branch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Offered_table, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(Offered_Service, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                .addComponent(Ordering_exp, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                .addComponent(Ordering_Services, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                            .addComponent(Price, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -256,48 +323,48 @@ public class customer_form extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Branch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Customer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(rSComboMetro1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Service_Type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Offered_Service, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollpane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Offered_table, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Ordering_Services, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollpane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Ordering_table, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Ordering_exp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollpane3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Ordering_exp_table, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -311,7 +378,7 @@ public class customer_form extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(931, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
@@ -325,6 +392,10 @@ public class customer_form extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Ordering_ServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ordering_ServicesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Ordering_ServicesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,9 +433,19 @@ public class customer_form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTextField Branch;
+    private javax.swing.JTextField Customer_ID;
+    private javax.swing.JTextField Date;
+    private javax.swing.JTextField Name;
+    private javax.swing.JButton Offered_Service;
+    private bizbuilder.Scrollpane Offered_table;
+    private javax.swing.JButton Ordering_Services;
+    private javax.swing.JButton Ordering_exp;
+    private bizbuilder.Scrollpane Ordering_exp_table;
+    private bizbuilder.Scrollpane Ordering_table;
+    private javax.swing.JTextField Phone;
+    private javax.swing.JTextField Price;
+    private rojerusan.RSComboMetro Service_Type;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
@@ -384,15 +465,5 @@ public class customer_form extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private rojerusan.RSComboMetro rSComboMetro1;
-    private bizbuilder.Scrollpane scrollpane1;
-    private bizbuilder.Scrollpane scrollpane2;
-    private bizbuilder.Scrollpane scrollpane3;
     // End of variables declaration//GEN-END:variables
 }
