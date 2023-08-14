@@ -97,18 +97,17 @@ public class customer_details extends javax.swing.JFrame {
                         
             while(rs.next())
             {
-                String customer_id,customer_name,phone,service_type,serviced_date,branch,discount,total_price;
+                String customer_id,customer_name,phone,service_type,serviced_date,branch,total_price;
                 
                 customer_id = rs.getString("customer_id");
                 customer_name = rs.getString("customer_name");
                 phone = rs.getString("phone");
                 service_type = rs.getString("service_type");
                 serviced_date = rs.getString("serviced_date");
-                branch = rs.getString("branch");
-                discount = rs.getString("discount");                 
+                branch = rs.getString("branch");                             
                 total_price = rs.getString("total_price");                 
                  
-                Object[] obj = {customer_id,customer_name,phone,service_type,serviced_date,branch,discount,total_price};
+                Object[] obj = {customer_id,customer_name,phone,service_type,serviced_date,branch,total_price};
                 model = (DefaultTableModel) jTable4.getModel();
                 model.addRow(obj);
 
