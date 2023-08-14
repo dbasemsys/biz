@@ -21,11 +21,11 @@ public class customer_details extends javax.swing.JFrame {
         Offered_table.setVisible(false);
         Order_table.setVisible(false);
         Order_exp_table.setVisible(false);
-        rSTableMetro1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        jTable4.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (!e.getValueIsAdjusting()) {
-                    int selectedRow = rSTableMetro1.getSelectedRow();
+                    int selectedRow = jTable4.getSelectedRow();
                     if (selectedRow != -1) {
                         populateDetailView(selectedRow);
                     }
@@ -37,11 +37,11 @@ public class customer_details extends javax.swing.JFrame {
     private void populateDetailView(int selectedRow) {
         // Retrieve data from the JTable model for the selected row
         if (jTextField1 != null && jTextField2 != null && jTextField3 != null && jTextField4 != null) {
-            Object column1 = rSTableMetro1.getValueAt(selectedRow, 0);
-            Object column2 = rSTableMetro1.getValueAt(selectedRow, 1);
-            Object column3 = rSTableMetro1.getValueAt(selectedRow, 2);
-            Object column4 = rSTableMetro1.getValueAt(selectedRow, 3);
-            String Type = (String) rSTableMetro1.getValueAt(selectedRow, 3);
+            Object column1 = jTable4.getValueAt(selectedRow, 0);
+            Object column2 = jTable4.getValueAt(selectedRow, 1);
+            Object column3 = jTable4.getValueAt(selectedRow, 2);
+            Object column4 = jTable4.getValueAt(selectedRow, 3);
+            String Type = (String) jTable4.getValueAt(selectedRow, 3);
             jTextField1.setText(column1.toString());
             jTextField2.setText(column2.toString());
             jTextField3.setText(column3.toString());
@@ -82,9 +82,6 @@ public class customer_details extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        scrollpane1 = new bizbuilder.Scrollpane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
         scrollpane2 = new bizbuilder.Scrollpane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -114,33 +111,13 @@ public class customer_details extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        scrollpane1 = new bizbuilder.Scrollpane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable4 = new rojeru_san.complementos.RSTableMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"dfdfsfsd", "sdfdsfsdf", "daf", "Shop"},
-                {"adf", "asdf", "hreh", "Ordering"},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        rSTableMetro1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rSTableMetro1MouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(rSTableMetro1);
-
-        scrollpane1.setViewportView(jScrollPane1);
-
-        getContentPane().add(scrollpane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -367,15 +344,36 @@ public class customer_details extends javax.swing.JFrame {
 
         getContentPane().add(scrollpane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 500, 500));
 
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"dfdfsfsd", "sdfdsfsdf", "daf", "Shop"},
+                {"adf", "asdf", "hreh", "Ordering"},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable4MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable4);
+
+        scrollpane1.setViewportView(jScrollPane1);
+
+        getContentPane().add(scrollpane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rSTableMetro1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSTableMetro1MouseClicked
+    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
         // TODO add your handling code here:
-      
-    
 
-    }//GEN-LAST:event_rSTableMetro1MouseClicked
+    }//GEN-LAST:event_jTable4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -436,13 +434,13 @@ public class customer_details extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private rojeru_san.complementos.RSTableMetro jTable4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private rojeru_san.complementos.RSTableMetro rSTableMetro1;
     private bizbuilder.Scrollpane scrollpane1;
     private bizbuilder.Scrollpane scrollpane2;
     // End of variables declaration//GEN-END:variables
