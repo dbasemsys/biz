@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package bizbuilder;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 /**
  *
  * @author THANATOS
@@ -36,12 +40,12 @@ public class signin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
-        password = new javax.swing.JPasswordField();
-        forgot = new javax.swing.JLabel();
+        txt_un = new javax.swing.JTextField();
+        txt_pw = new javax.swing.JPasswordField();
+        lbl_fgt = new javax.swing.JLabel();
         btn_signin = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        show = new javax.swing.JCheckBox();
+        show_pw = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -66,6 +70,11 @@ public class signin extends javax.swing.JFrame {
         btn_signup.setForeground(new java.awt.Color(255, 255, 255));
         btn_signup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/signup.png"))); // NOI18N
         btn_signup.setText("SIGNUP");
+        btn_signup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_signupActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,22 +119,22 @@ public class signin extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password");
 
-        username.setBackground(new java.awt.Color(102, 102, 255));
-        username.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        username.setForeground(new java.awt.Color(51, 51, 51));
-        username.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txt_un.setBackground(new java.awt.Color(102, 102, 255));
+        txt_un.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txt_un.setForeground(new java.awt.Color(51, 51, 51));
+        txt_un.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
-        password.setBackground(new java.awt.Color(102, 102, 255));
-        password.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        password.setForeground(new java.awt.Color(51, 51, 51));
-        password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txt_pw.setBackground(new java.awt.Color(102, 102, 255));
+        txt_pw.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txt_pw.setForeground(new java.awt.Color(51, 51, 51));
+        txt_pw.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
-        forgot.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        forgot.setForeground(new java.awt.Color(255, 255, 255));
-        forgot.setText("forgot Password?");
-        forgot.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_fgt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_fgt.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_fgt.setText("forgot Password?");
+        lbl_fgt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                forgotMouseClicked(evt);
+                lbl_fgtMouseClicked(evt);
             }
         });
 
@@ -133,16 +142,26 @@ public class signin extends javax.swing.JFrame {
         btn_signin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_signin.setForeground(new java.awt.Color(102, 102, 255));
         btn_signin.setText("SIGNIN");
+        btn_signin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_signinActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Sign in to access your account.");
 
-        show.setBackground(new java.awt.Color(102, 102, 255));
-        show.setForeground(new java.awt.Color(255, 255, 255));
-        show.setText("Show password");
-        show.setActionCommand("Show");
-        show.setBorder(null);
+        show_pw.setBackground(new java.awt.Color(102, 102, 255));
+        show_pw.setForeground(new java.awt.Color(255, 255, 255));
+        show_pw.setText("Show password");
+        show_pw.setActionCommand("Show");
+        show_pw.setBorder(null);
+        show_pw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                show_pwActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -160,15 +179,15 @@ public class signin extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(show)
+                            .addComponent(show_pw)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(forgot)
+                                    .addComponent(lbl_fgt)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btn_signin))
                                 .addComponent(jLabel6)
-                                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_pw, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_un, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel5)))))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
@@ -182,17 +201,17 @@ public class signin extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_un, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_pw, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(show)
+                .addComponent(show_pw)
                 .addGap(13, 13, 13)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_signin)
-                    .addComponent(forgot))
+                    .addComponent(lbl_fgt))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
 
@@ -202,12 +221,94 @@ public class signin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void forgotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotMouseClicked
+    private void lbl_fgtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_fgtMouseClicked
         // TODO add your handling code here:
         forgot o = new forgot();
         o.show();
-    }//GEN-LAST:event_forgotMouseClicked
+    }//GEN-LAST:event_lbl_fgtMouseClicked
 
+    private void btn_signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signupActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        
+        signup s = new signup();
+        s.setVisible(true);
+    }//GEN-LAST:event_btn_signupActionPerformed
+
+    private void btn_signinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signinActionPerformed
+        // TODO add your handling code here:
+        if(validation() == true)
+        {
+            login();
+        }
+    }//GEN-LAST:event_btn_signinActionPerformed
+
+    private void show_pwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_pwActionPerformed
+        // TODO add your handling code here:
+        if (show_pw.isSelected()) 
+        {
+            txt_pw.setEchoChar((char) 0); // Show characters            
+        }
+        else 
+        {
+            txt_pw.setEchoChar('\u25cf'); // Hide characters            
+        }
+    }//GEN-LAST:event_show_pwActionPerformed
+    // Validation
+    public boolean validation()
+    {
+        String un = txt_un.getText();
+        String pw = txt_pw.getText();
+        
+        if(un.equals(""))
+        {
+            JOptionPane.showMessageDialog(this,"Enter Username");
+            return false;
+        }
+        if(pw.equals(""))
+        {
+            JOptionPane.showMessageDialog(this,"Enter Password");
+            return false;
+        }
+        
+        return true;    
+    }
+    
+    //Login
+    public void login()
+    {
+        String un = txt_un.getText();
+        String pw = txt_pw.getText();
+        
+        try
+        { 
+        Connection con = DBConnection.getConnection();
+        
+        String sql = "select * from user where user_name =? and password = ? ";
+        PreparedStatement pst = con.prepareStatement(sql);
+        
+        pst.setString(1,un);
+        pst.setString(2,pw);
+        
+        ResultSet rs = pst.executeQuery();
+        if(rs.next())
+        {
+            //JOptionPane.showMessageDialog(this,"Login Successfully");
+            this.dispose();
+            home_page h = new home_page();
+            h.setVisible(true);            
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,"Invalid Username or Password");
+        }
+        
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }                      
+    }
     /**
      * @param args the command line arguments
      */
@@ -246,7 +347,6 @@ public class signin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_signin;
     private javax.swing.JButton btn_signup;
-    private javax.swing.JLabel forgot;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -256,8 +356,9 @@ public class signin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField password;
-    private javax.swing.JCheckBox show;
-    private javax.swing.JTextField username;
+    private javax.swing.JLabel lbl_fgt;
+    private javax.swing.JCheckBox show_pw;
+    private javax.swing.JPasswordField txt_pw;
+    private javax.swing.JTextField txt_un;
     // End of variables declaration//GEN-END:variables
 }
