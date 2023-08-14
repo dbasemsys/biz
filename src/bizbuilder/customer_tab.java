@@ -57,6 +57,9 @@ public class customer_tab extends javax.swing.JFrame {
         Employee.setText("Employee");
         Employee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Employee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EmployeeMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 EmployeeMouseEntered(evt);
             }
@@ -71,6 +74,9 @@ public class customer_tab extends javax.swing.JFrame {
         Dashboard.setText("Dashboard");
         Dashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DashboardMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 DashboardMouseEntered(evt);
             }
@@ -85,6 +91,9 @@ public class customer_tab extends javax.swing.JFrame {
         Monthly_Expenses.setText("Monthly Expenses");
         Monthly_Expenses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Monthly_Expenses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Monthly_ExpensesMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Monthly_ExpensesMouseEntered(evt);
             }
@@ -113,6 +122,9 @@ public class customer_tab extends javax.swing.JFrame {
         Adding.setText("Adding");
         Adding.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Adding.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddingMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 AddingMouseEntered(evt);
             }
@@ -127,6 +139,11 @@ public class customer_tab extends javax.swing.JFrame {
         Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logout.png"))); // NOI18N
         Logout.setText("Logout");
         Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -280,6 +297,42 @@ public class customer_tab extends javax.swing.JFrame {
         // TODO add your handling code here:
         Adding.setBackground(new Color(102,102,255));
     }//GEN-LAST:event_AddingMouseExited
+
+    private void EmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmployeeMouseClicked
+        // TODO add your handling code here:
+        employee_tab o = new employee_tab();
+        o.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_EmployeeMouseClicked
+
+    private void DashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashboardMouseClicked
+        // TODO add your handling code here:
+        /*dashboard_tab o = new dashboard_tab();
+        o.setVisible(true);
+        this.dispose();*/
+    }//GEN-LAST:event_DashboardMouseClicked
+
+    private void Monthly_ExpensesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Monthly_ExpensesMouseClicked
+        // TODO add your handling code here:
+        /*Monthly_exp_tab o = new Monthly_exp_tab();
+        o.setVisible(true);
+        this.dispose();
+        */
+    }//GEN-LAST:event_Monthly_ExpensesMouseClicked
+
+    private void AddingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddingMouseClicked
+        // TODO add your handling code here:
+        /*adding_tab o = new adding_tab();
+        o.setVisible(true);
+        this.dispose();*/
+    }//GEN-LAST:event_AddingMouseClicked
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        // TODO add your handling code here:
+        signin o = new signin();
+        o.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LogoutActionPerformed
 
     /**
      * @param args the command line arguments
