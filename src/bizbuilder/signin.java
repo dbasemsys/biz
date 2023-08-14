@@ -31,17 +31,17 @@ public class signin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_signup = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel7 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        forgot = new javax.swing.JLabel();
+        btn_signin = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        show = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -61,11 +61,11 @@ public class signin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(102, 102, 255));
         jLabel3.setText("Create your account and explore.");
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/signup.png"))); // NOI18N
-        jButton1.setText("SIGNUP");
+        btn_signup.setBackground(new java.awt.Color(102, 102, 255));
+        btn_signup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_signup.setForeground(new java.awt.Color(255, 255, 255));
+        btn_signup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/signup.png"))); // NOI18N
+        btn_signup.setText("SIGNUP");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,7 +77,7 @@ public class signin extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(btn_signup))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -90,7 +90,7 @@ public class signin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btn_signup)
                 .addContainerGap(205, Short.MAX_VALUE))
         );
 
@@ -110,39 +110,39 @@ public class signin extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password");
 
-        jTextField1.setBackground(new java.awt.Color(102, 102, 255));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        username.setBackground(new java.awt.Color(102, 102, 255));
+        username.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        username.setForeground(new java.awt.Color(51, 51, 51));
+        username.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
-        jPasswordField1.setBackground(new java.awt.Color(102, 102, 255));
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(51, 51, 51));
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        password.setBackground(new java.awt.Color(102, 102, 255));
+        password.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        password.setForeground(new java.awt.Color(51, 51, 51));
+        password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("forgot Password?");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        forgot.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        forgot.setForeground(new java.awt.Color(255, 255, 255));
+        forgot.setText("forgot Password?");
+        forgot.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+                forgotMouseClicked(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(102, 102, 255));
-        jButton2.setText("SIGNIN");
+        btn_signin.setBackground(new java.awt.Color(255, 255, 255));
+        btn_signin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_signin.setForeground(new java.awt.Color(102, 102, 255));
+        btn_signin.setText("SIGNIN");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Sign in to access your account.");
 
-        jCheckBox1.setBackground(new java.awt.Color(102, 102, 255));
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Show password");
-        jCheckBox1.setActionCommand("Show");
-        jCheckBox1.setBorder(null);
+        show.setBackground(new java.awt.Color(102, 102, 255));
+        show.setForeground(new java.awt.Color(255, 255, 255));
+        show.setText("Show password");
+        show.setActionCommand("Show");
+        show.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -160,15 +160,15 @@ public class signin extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jCheckBox1)
+                            .addComponent(show)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
+                                    .addComponent(forgot)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2))
+                                    .addComponent(btn_signin))
                                 .addComponent(jLabel6)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel5)))))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
@@ -182,17 +182,17 @@ public class signin extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox1)
+                .addComponent(show)
                 .addGap(13, 13, 13)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel7))
+                    .addComponent(btn_signin)
+                    .addComponent(forgot))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
 
@@ -202,11 +202,11 @@ public class signin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    private void forgotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotMouseClicked
         // TODO add your handling code here:
         forgot o = new forgot();
         o.show();
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_forgotMouseClicked
 
     /**
      * @param args the command line arguments
@@ -244,20 +244,20 @@ public class signin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JButton btn_signin;
+    private javax.swing.JButton btn_signup;
+    private javax.swing.JLabel forgot;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JCheckBox show;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
