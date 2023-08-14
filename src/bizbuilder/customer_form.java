@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bizbuilder;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author THANATOS
- */
 public class customer_form extends javax.swing.JFrame {
 
     /**
@@ -17,173 +14,183 @@ public class customer_form extends javax.swing.JFrame {
      */
     public customer_form() {
         initComponents();
-        Service_Type.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-        visibility();
-        }
+        
+        cmb_type.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
+                visibility();
+            }
         });
-        Offered_Service.setVisible(false);
-        Offered_table.setVisible(false);
-        Ordering_Services.setVisible(false);
-        Ordering_table.setVisible(false);
-        Ordering_exp.setVisible(false);
-        Ordering_exp_table.setVisible(false);
-        jLabel7.setVisible(false);
-        jLabel8.setVisible(false);
-        jLabel9.setVisible(false);
-        jLabel10.setVisible(false);
+        
+        btn_new_shop_ser.setVisible(false);
+        shop_ser_pane.setVisible(false);
+        btn_new_order_ser.setVisible(false);
+        order_ser_pane.setVisible(false);
+        btn_new_order_ser_exp.setVisible(false);
+        order_ser_exp_pane.setVisible(false);
+        lbl_shop_ser.setVisible(false);
+        lbl_order_ser.setVisible(false);
+        lbl_order_ser_exp.setVisible(false);
+        lbl_price.setVisible(false);
         Price.setVisible(false);
         
-    }   
-     public void visibility() {
-         String Type = (String) Service_Type.getSelectedItem();
-         if(Type.equals("None")){
-            Offered_Service.setVisible(false);
-            Offered_table.setVisible(false);
-            Ordering_Services.setVisible(false);
-            Ordering_table.setVisible(false);
-            Ordering_exp.setVisible(false);
-            Ordering_exp_table.setVisible(false);
-            jLabel7.setVisible(false);
-            jLabel8.setVisible(false);
-            jLabel9.setVisible(false);
-            jLabel10.setVisible(false);
+    }  
+    
+    
+    public void visibility() {
+        String Type = (String) cmb_type.getSelectedItem();
+        if(Type.equals("None"))
+        {
+            btn_new_shop_ser.setVisible(false);
+            shop_ser_pane.setVisible(false);
+            btn_new_order_ser.setVisible(false);
+            order_ser_pane.setVisible(false);
+            btn_new_order_ser_exp.setVisible(false);
+            order_ser_exp_pane.setVisible(false);
+            lbl_shop_ser.setVisible(false);
+            lbl_order_ser.setVisible(false);
+            lbl_order_ser_exp.setVisible(false);
+            lbl_price.setVisible(false);
             Price.setVisible(false);
             
-         }else {
-            if(Type.equals("Ordering")){
-            Offered_Service.setVisible(false);
-            Offered_table.setVisible(false);
-            jLabel8.setVisible(true);
-            jLabel9.setVisible(true); 
-            Ordering_Services.setVisible(true);
-            Ordering_table.setVisible(true);
-            Ordering_exp.setVisible(true);
-            Ordering_exp_table.setVisible(true);
-            jLabel7.setVisible(false);
-            jLabel10.setVisible(true);
-            Price.setVisible(true);
-            
-         }else{
-            jLabel7.setVisible(true);
-            Offered_Service.setVisible(true);
-            Offered_table.setVisible(true);
-            Ordering_Services.setVisible(false);
-            Ordering_table.setVisible(false);
-            Ordering_exp.setVisible(false);
-            Ordering_exp_table.setVisible(false);
-            jLabel8.setVisible(false);
-            jLabel9.setVisible(false);
-            jLabel10.setVisible(true);
-            Price.setVisible(true);
+        }
+        else 
+        {
+            if(Type.equals("Ordering"))
+            {
+                btn_new_shop_ser.setVisible(false);
+                shop_ser_pane.setVisible(false);
+                lbl_order_ser.setVisible(true);
+                lbl_order_ser_exp.setVisible(true); 
+                btn_new_order_ser.setVisible(true);
+                order_ser_pane.setVisible(true);
+                btn_new_order_ser_exp.setVisible(true);
+                order_ser_exp_pane.setVisible(true);
+                lbl_shop_ser.setVisible(false);
+                lbl_price.setVisible(true);
+                Price.setVisible(true);            
             }
-         }
+            else
+            {
+                lbl_shop_ser.setVisible(true);
+                btn_new_shop_ser.setVisible(true);
+                shop_ser_pane.setVisible(true);
+                btn_new_order_ser.setVisible(false);
+                order_ser_pane.setVisible(false);
+                btn_new_order_ser_exp.setVisible(false);
+                order_ser_exp_pane.setVisible(false);
+                lbl_order_ser.setVisible(false);
+                lbl_order_ser_exp.setVisible(false);
+                lbl_price.setVisible(true);
+                Price.setVisible(true);
+            }
+        }
          
                 
     }
     
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+    
+   
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Branch = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        Customer_ID = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        Name = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        Phone = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        Date = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        Service_Type = new rojerusan.RSComboMetro();
-        Offered_Service = new javax.swing.JButton();
-        Offered_table = new bizbuilder.Scrollpane();
+        lbl_br = new javax.swing.JLabel();
+        txt_br = new javax.swing.JTextField();
+        lbl_cid = new javax.swing.JLabel();
+        txt_cid = new javax.swing.JTextField();
+        lbl_cname = new javax.swing.JLabel();
+        txt_cname = new javax.swing.JTextField();
+        lbl_phone = new javax.swing.JLabel();
+        txt_phone = new javax.swing.JTextField();
+        lbl_type = new javax.swing.JLabel();
+        lbl_date = new javax.swing.JLabel();
+        txt_date = new javax.swing.JTextField();
+        lbl_shop_ser = new javax.swing.JLabel();
+        cmb_type = new rojerusan.RSComboMetro();
+        btn_new_shop_ser = new javax.swing.JButton();
+        shop_ser_pane = new bizbuilder.Scrollpane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel8 = new javax.swing.JLabel();
-        Ordering_Services = new javax.swing.JButton();
-        Ordering_table = new bizbuilder.Scrollpane();
+        tbl_shop_ser = new javax.swing.JTable();
+        lbl_order_ser = new javax.swing.JLabel();
+        btn_new_order_ser = new javax.swing.JButton();
+        order_ser_pane = new bizbuilder.Scrollpane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jLabel9 = new javax.swing.JLabel();
-        Ordering_exp = new javax.swing.JButton();
-        Ordering_exp_table = new bizbuilder.Scrollpane();
+        tbl_order_ser = new javax.swing.JTable();
+        lbl_order_ser_exp = new javax.swing.JLabel();
+        btn_new_order_ser_exp = new javax.swing.JButton();
+        order_ser_exp_pane = new bizbuilder.Scrollpane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tbl_order_ser_exp = new javax.swing.JTable();
         Price = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        lbl_price = new javax.swing.JLabel();
+        btn_cancel = new javax.swing.JButton();
+        btn_save = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Branch");
+        lbl_br.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_br.setText("Branch");
 
-        Branch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Branch.setForeground(new java.awt.Color(102, 102, 255));
-        Branch.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        txt_br.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_br.setForeground(new java.awt.Color(102, 102, 255));
+        txt_br.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Customer ID");
+        lbl_cid.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_cid.setText("Customer ID");
 
-        Customer_ID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Customer_ID.setForeground(new java.awt.Color(102, 102, 255));
-        Customer_ID.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        txt_cid.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_cid.setForeground(new java.awt.Color(102, 102, 255));
+        txt_cid.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Customer Name");
+        lbl_cname.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_cname.setText("Customer Name");
 
-        Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Name.setForeground(new java.awt.Color(102, 102, 255));
-        Name.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        txt_cname.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_cname.setForeground(new java.awt.Color(102, 102, 255));
+        txt_cname.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("Phone Number");
+        lbl_phone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_phone.setText("Phone Number");
 
-        Phone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Phone.setForeground(new java.awt.Color(102, 102, 255));
-        Phone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        txt_phone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_phone.setForeground(new java.awt.Color(102, 102, 255));
+        txt_phone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("Service Type");
+        lbl_type.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_type.setText("Service Type");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel6.setText("Service Date");
+        lbl_date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_date.setText("Service Date");
 
-        Date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Date.setForeground(new java.awt.Color(102, 102, 255));
-        Date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        txt_date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_date.setForeground(new java.awt.Color(102, 102, 255));
+        txt_date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setText("Offered service");
+        lbl_shop_ser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_shop_ser.setText("Offered service");
 
-        Service_Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Shop", "Ordering" }));
-        Service_Type.setColorArrow(new java.awt.Color(102, 102, 255));
-        Service_Type.setColorBorde(new java.awt.Color(102, 102, 255));
-        Service_Type.setColorFondo(new java.awt.Color(102, 102, 255));
-        Service_Type.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmb_type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Shop", "Ordering" }));
+        cmb_type.setColorArrow(new java.awt.Color(102, 102, 255));
+        cmb_type.setColorBorde(new java.awt.Color(102, 102, 255));
+        cmb_type.setColorFondo(new java.awt.Color(102, 102, 255));
+        cmb_type.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        Offered_Service.setBackground(new java.awt.Color(102, 102, 255));
-        Offered_Service.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Offered_Service.setForeground(new java.awt.Color(255, 255, 255));
-        Offered_Service.setText("New");
-        Offered_Service.setBorderPainted(false);
+        btn_new_shop_ser.setBackground(new java.awt.Color(102, 102, 255));
+        btn_new_shop_ser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_new_shop_ser.setForeground(new java.awt.Color(255, 255, 255));
+        btn_new_shop_ser.setText("New");
+        btn_new_shop_ser.setBorderPainted(false);
 
-        jTable1.setForeground(new java.awt.Color(102, 102, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_shop_ser.setForeground(new java.awt.Color(102, 102, 255));
+        tbl_shop_ser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -194,27 +201,27 @@ public class customer_form extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(102, 102, 255));
-        jScrollPane2.setViewportView(jTable1);
+        tbl_shop_ser.setGridColor(new java.awt.Color(102, 102, 255));
+        jScrollPane2.setViewportView(tbl_shop_ser);
 
-        Offered_table.setViewportView(jScrollPane2);
+        shop_ser_pane.setViewportView(jScrollPane2);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel8.setText("Ordering Services");
+        lbl_order_ser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_order_ser.setText("Ordering Services");
 
-        Ordering_Services.setBackground(new java.awt.Color(102, 102, 255));
-        Ordering_Services.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Ordering_Services.setForeground(new java.awt.Color(255, 255, 255));
-        Ordering_Services.setText("New");
-        Ordering_Services.setBorderPainted(false);
-        Ordering_Services.addActionListener(new java.awt.event.ActionListener() {
+        btn_new_order_ser.setBackground(new java.awt.Color(102, 102, 255));
+        btn_new_order_ser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_new_order_ser.setForeground(new java.awt.Color(255, 255, 255));
+        btn_new_order_ser.setText("New");
+        btn_new_order_ser.setBorderPainted(false);
+        btn_new_order_ser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ordering_ServicesActionPerformed(evt);
+                btn_new_order_serActionPerformed(evt);
             }
         });
 
-        jTable2.setForeground(new java.awt.Color(102, 102, 255));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_order_ser.setForeground(new java.awt.Color(102, 102, 255));
+        tbl_order_ser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -225,22 +232,22 @@ public class customer_form extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable2.setGridColor(new java.awt.Color(102, 102, 255));
-        jScrollPane3.setViewportView(jTable2);
+        tbl_order_ser.setGridColor(new java.awt.Color(102, 102, 255));
+        jScrollPane3.setViewportView(tbl_order_ser);
 
-        Ordering_table.setViewportView(jScrollPane3);
+        order_ser_pane.setViewportView(jScrollPane3);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setText("Ordering Service Expenses");
+        lbl_order_ser_exp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_order_ser_exp.setText("Ordering Service Expenses");
 
-        Ordering_exp.setBackground(new java.awt.Color(102, 102, 255));
-        Ordering_exp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Ordering_exp.setForeground(new java.awt.Color(255, 255, 255));
-        Ordering_exp.setText("New");
-        Ordering_exp.setBorderPainted(false);
+        btn_new_order_ser_exp.setBackground(new java.awt.Color(102, 102, 255));
+        btn_new_order_ser_exp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_new_order_ser_exp.setForeground(new java.awt.Color(255, 255, 255));
+        btn_new_order_ser_exp.setText("New");
+        btn_new_order_ser_exp.setBorderPainted(false);
 
-        jTable3.setForeground(new java.awt.Color(102, 102, 255));
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_order_ser_exp.setForeground(new java.awt.Color(102, 102, 255));
+        tbl_order_ser_exp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -251,29 +258,29 @@ public class customer_form extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable3.setGridColor(new java.awt.Color(102, 102, 255));
-        jScrollPane4.setViewportView(jTable3);
+        tbl_order_ser_exp.setGridColor(new java.awt.Color(102, 102, 255));
+        jScrollPane4.setViewportView(tbl_order_ser_exp);
 
-        Ordering_exp_table.setViewportView(jScrollPane4);
+        order_ser_exp_pane.setViewportView(jScrollPane4);
 
         Price.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Price.setForeground(new java.awt.Color(102, 102, 255));
         Price.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel10.setText("Price");
+        lbl_price.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_price.setText("Price");
 
-        jButton4.setBackground(new java.awt.Color(102, 102, 255));
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Cancel");
-        jButton4.setBorderPainted(false);
+        btn_cancel.setBackground(new java.awt.Color(102, 102, 255));
+        btn_cancel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_cancel.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cancel.setText("Cancel");
+        btn_cancel.setBorderPainted(false);
 
-        jButton5.setBackground(new java.awt.Color(102, 102, 255));
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Save");
-        jButton5.setBorderPainted(false);
+        btn_save.setBackground(new java.awt.Color(102, 102, 255));
+        btn_save.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_save.setForeground(new java.awt.Color(255, 255, 255));
+        btn_save.setText("Save");
+        btn_save.setBorderPainted(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -283,37 +290,37 @@ public class customer_form extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(lbl_order_ser_exp)
+                            .addComponent(lbl_price)
+                            .addComponent(lbl_order_ser)
+                            .addComponent(lbl_shop_ser)
+                            .addComponent(lbl_br)
+                            .addComponent(lbl_cid)
+                            .addComponent(lbl_cname)
+                            .addComponent(lbl_phone)
+                            .addComponent(lbl_type)
+                            .addComponent(lbl_date))
                         .addGap(100, 100, 100)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Ordering_table, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(Ordering_exp_table, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(Date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(Service_Type, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(Phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(Name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(Customer_ID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(Branch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(order_ser_pane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(order_ser_exp_pane, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(txt_date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(cmb_type, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(txt_phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(txt_cname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(txt_cid, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(txt_br, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Offered_table, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(Offered_Service, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                .addComponent(Ordering_exp, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                .addComponent(Ordering_Services, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                                .addComponent(shop_ser_pane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(btn_new_shop_ser, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                .addComponent(btn_new_order_ser_exp, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                .addComponent(btn_new_order_ser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
                             .addComponent(Price, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -322,54 +329,54 @@ public class customer_form extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(Branch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_br)
+                    .addComponent(txt_br, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(Customer_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_cid)
+                    .addComponent(txt_cid, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_cname)
+                    .addComponent(txt_cname, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_phone)
+                    .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(Service_Type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_type)
+                    .addComponent(cmb_type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_date)
+                    .addComponent(txt_date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(Offered_Service, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_shop_ser)
+                    .addComponent(btn_new_shop_ser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Offered_table, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(Ordering_Services, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ordering_table, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(shop_ser_pane, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(Ordering_exp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_order_ser)
+                    .addComponent(btn_new_order_ser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ordering_exp_table, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(order_ser_pane, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_order_ser_exp)
+                    .addComponent(btn_new_order_ser_exp, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(order_ser_exp_pane, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(lbl_price))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(btn_cancel)
+                    .addComponent(btn_save))
                 .addGap(19, 19, 19))
         );
 
@@ -393,9 +400,9 @@ public class customer_form extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Ordering_ServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ordering_ServicesActionPerformed
+    private void btn_new_order_serActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_new_order_serActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Ordering_ServicesActionPerformed
+    }//GEN-LAST:event_btn_new_order_serActionPerformed
 
     /**
      * @param args the command line arguments
@@ -433,37 +440,37 @@ public class customer_form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Branch;
-    private javax.swing.JTextField Customer_ID;
-    private javax.swing.JTextField Date;
-    private javax.swing.JTextField Name;
-    private javax.swing.JButton Offered_Service;
-    private bizbuilder.Scrollpane Offered_table;
-    private javax.swing.JButton Ordering_Services;
-    private javax.swing.JButton Ordering_exp;
-    private bizbuilder.Scrollpane Ordering_exp_table;
-    private bizbuilder.Scrollpane Ordering_table;
-    private javax.swing.JTextField Phone;
     private javax.swing.JTextField Price;
-    private rojerusan.RSComboMetro Service_Type;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton btn_cancel;
+    private javax.swing.JButton btn_new_order_ser;
+    private javax.swing.JButton btn_new_order_ser_exp;
+    private javax.swing.JButton btn_new_shop_ser;
+    private javax.swing.JButton btn_save;
+    private rojerusan.RSComboMetro cmb_type;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JLabel lbl_br;
+    private javax.swing.JLabel lbl_cid;
+    private javax.swing.JLabel lbl_cname;
+    private javax.swing.JLabel lbl_date;
+    private javax.swing.JLabel lbl_order_ser;
+    private javax.swing.JLabel lbl_order_ser_exp;
+    private javax.swing.JLabel lbl_phone;
+    private javax.swing.JLabel lbl_price;
+    private javax.swing.JLabel lbl_shop_ser;
+    private javax.swing.JLabel lbl_type;
+    private bizbuilder.Scrollpane order_ser_exp_pane;
+    private bizbuilder.Scrollpane order_ser_pane;
+    private bizbuilder.Scrollpane shop_ser_pane;
+    private javax.swing.JTable tbl_order_ser;
+    private javax.swing.JTable tbl_order_ser_exp;
+    private javax.swing.JTable tbl_shop_ser;
+    private javax.swing.JTextField txt_br;
+    private javax.swing.JTextField txt_cid;
+    private javax.swing.JTextField txt_cname;
+    private javax.swing.JTextField txt_date;
+    private javax.swing.JTextField txt_phone;
     // End of variables declaration//GEN-END:variables
 }
