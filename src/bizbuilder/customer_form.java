@@ -730,8 +730,7 @@ public class customer_form extends javax.swing.JFrame {
                 }
                 else if(cmb_type.getSelectedIndex()==2)
                 {
-                    insertOrderSertoDb();
-                    insertOrderSerExptoDb();
+                    insertOrderSertoDb();                    
                 }
                 else if(cmb_type.getSelectedIndex()==0)
                 {
@@ -1056,6 +1055,11 @@ public class customer_form extends javax.swing.JFrame {
                     pst.executeUpdate();
                 }
                 JOptionPane.showMessageDialog(this, "Records Are Saved");
+                
+                deleteCommonRecords();
+                deleteAllShopSerRecords();
+                deleteAllOrderSerRecords();
+                deleteAllOrderSerExpRecords();
             }     
             else
             {
@@ -1100,6 +1104,12 @@ public class customer_form extends javax.swing.JFrame {
                     pst.executeUpdate();
                 }
                 JOptionPane.showMessageDialog(this, "Records Are Saved");
+                insertOrderSerExptoDb();
+                
+                deleteCommonRecords();
+                deleteAllShopSerRecords();
+                deleteAllOrderSerRecords();
+                deleteAllOrderSerExpRecords();
             }     
             else
             {
