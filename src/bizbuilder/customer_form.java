@@ -33,16 +33,14 @@ public class customer_form extends javax.swing.JFrame {
         lbl_phone = new javax.swing.JLabel();
         lbl_type = new javax.swing.JLabel();
         lbl_date = new javax.swing.JLabel();
-        txt_date = new javax.swing.JTextField();
         cmb_type = new rojerusan.RSComboMetro();
         txt_phone = new javax.swing.JTextField();
         txt_cname = new javax.swing.JTextField();
         txt_cid = new javax.swing.JTextField();
-        lbl_order_ser7 = new javax.swing.JLabel();
         txt_price = new javax.swing.JTextField();
         cmb_br = new rojerusan.RSComboMetro();
         lbl_order_ser8 = new javax.swing.JLabel();
-        txt_dis = new javax.swing.JTextField();
+        txt_date = new rojeru_san.componentes.RSDateChooser();
         shop_ser_panel = new javax.swing.JPanel();
         txt_shop_ser_price = new javax.swing.JTextField();
         lbl_shop_ser = new javax.swing.JLabel();
@@ -54,6 +52,8 @@ public class customer_form extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_shop_ser = new javax.swing.JTable();
         btn_add_shop_ser = new javax.swing.JButton();
+        lbl_order_ser9 = new javax.swing.JLabel();
+        txt_dis = new javax.swing.JTextField();
         order_panel = new javax.swing.JPanel();
         order_ser_panel = new javax.swing.JPanel();
         txt_order_ser_price = new javax.swing.JTextField();
@@ -105,11 +105,7 @@ public class customer_form extends javax.swing.JFrame {
         lbl_date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_date.setText("Service Date");
 
-        txt_date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txt_date.setForeground(new java.awt.Color(102, 102, 255));
-        txt_date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-
-        cmb_type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Shop", "Ordering" }));
+        cmb_type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select ...", "Shop", "Ordering" }));
         cmb_type.setColorArrow(new java.awt.Color(102, 102, 255));
         cmb_type.setColorBorde(new java.awt.Color(102, 102, 255));
         cmb_type.setColorFondo(new java.awt.Color(102, 102, 255));
@@ -132,9 +128,6 @@ public class customer_form extends javax.swing.JFrame {
         txt_cid.setForeground(new java.awt.Color(102, 102, 255));
         txt_cid.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
-        lbl_order_ser7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbl_order_ser7.setText("Discount");
-
         txt_price.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_price.setForeground(new java.awt.Color(102, 102, 255));
         txt_price.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
@@ -153,9 +146,7 @@ public class customer_form extends javax.swing.JFrame {
         lbl_order_ser8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_order_ser8.setText("Price");
 
-        txt_dis.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txt_dis.setForeground(new java.awt.Color(102, 102, 255));
-        txt_dis.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        txt_date.setPlaceholder("choose date");
 
         javax.swing.GroupLayout common_panel1Layout = new javax.swing.GroupLayout(common_panel1);
         common_panel1.setLayout(common_panel1Layout);
@@ -169,23 +160,21 @@ public class customer_form extends javax.swing.JFrame {
                     .addComponent(lbl_phone)
                     .addComponent(lbl_type)
                     .addComponent(lbl_date)
-                    .addComponent(lbl_order_ser7)
-                    .addComponent(lbl_order_ser8)
-                    .addComponent(lbl_br))
+                    .addComponent(lbl_br)
+                    .addComponent(lbl_order_ser8))
                 .addGap(100, 100, 100)
                 .addGroup(common_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_price)
-                    .addComponent(txt_date)
                     .addComponent(cmb_type, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                     .addComponent(txt_phone)
                     .addComponent(txt_cname)
                     .addComponent(txt_cid)
-                    .addComponent(txt_dis)
-                    .addComponent(cmb_br, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmb_br, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_price))
                 .addGap(15, 15, 15))
         );
 
-        common_panel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lbl_br, lbl_cid, lbl_cname, lbl_date, lbl_order_ser7, lbl_order_ser8, lbl_phone, lbl_type});
+        common_panel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lbl_br, lbl_cid, lbl_cname, lbl_date, lbl_order_ser8, lbl_phone, lbl_type});
 
         common_panel1Layout.setVerticalGroup(
             common_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,18 +200,14 @@ public class customer_form extends javax.swing.JFrame {
                     .addComponent(lbl_type)
                     .addComponent(cmb_type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(common_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(common_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_date)
                     .addComponent(txt_date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(common_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_order_ser7)
-                    .addComponent(txt_dis, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(common_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_order_ser8)
                     .addComponent(txt_price, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         shop_ser_panel.setBackground(new java.awt.Color(255, 255, 255));
@@ -290,6 +275,13 @@ public class customer_form extends javax.swing.JFrame {
             }
         });
 
+        lbl_order_ser9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_order_ser9.setText("Discount");
+
+        txt_dis.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_dis.setForeground(new java.awt.Color(102, 102, 255));
+        txt_dis.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+
         javax.swing.GroupLayout shop_ser_panelLayout = new javax.swing.GroupLayout(shop_ser_panel);
         shop_ser_panel.setLayout(shop_ser_panelLayout);
         shop_ser_panelLayout.setHorizontalGroup(
@@ -303,9 +295,9 @@ public class customer_form extends javax.swing.JFrame {
                             .addComponent(cmb_shop_ser, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(shop_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_order_ser2)
-                            .addComponent(txt_shop_ser_price, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txt_shop_ser_price, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_order_ser2))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(shop_ser_panelLayout.createSequentialGroup()
                         .addGroup(shop_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(scrollpane_shop_ser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -314,13 +306,20 @@ public class customer_form extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_add_shop_ser, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_dl_shop_ser, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn_dl_shop_ser, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(shop_ser_panelLayout.createSequentialGroup()
+                                .addGroup(shop_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_dis, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(shop_ser_panelLayout.createSequentialGroup()
+                                        .addComponent(lbl_order_ser9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(15, 15, 15))))
         );
         shop_ser_panelLayout.setVerticalGroup(
             shop_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(shop_ser_panelLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(shop_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_shop_ser)
                     .addComponent(btn_dl_shop_ser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,12 +329,16 @@ public class customer_form extends javax.swing.JFrame {
                     .addComponent(lbl_order_ser1)
                     .addComponent(lbl_order_ser2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(shop_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_shop_ser_price, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmb_shop_ser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(shop_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmb_shop_ser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_shop_ser_price, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addComponent(scrollpane_shop_ser, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_order_ser9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_dis, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
 
         order_panel.setBackground(new java.awt.Color(255, 255, 255));
@@ -414,7 +417,7 @@ public class customer_form extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(order_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_order_ser4)
-                            .addComponent(txt_order_ser_price, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_order_ser_price, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(order_ser_panelLayout.createSequentialGroup()
                         .addGroup(order_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,7 +524,7 @@ public class customer_form extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(order_ser_exp_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_order_ser6)
-                            .addComponent(txt_order_ser_exp_price, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_order_ser_exp_price, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(order_ser_exp_panelLayout.createSequentialGroup()
                         .addGroup(order_ser_exp_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -597,26 +600,27 @@ public class customer_form extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(order_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(shop_ser_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(order_panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(shop_ser_panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(common_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(common_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(25, 25, 25)
                 .addComponent(common_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addComponent(shop_ser_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(order_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -624,7 +628,7 @@ public class customer_form extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         scrollpane1.setViewportView(jPanel1);
@@ -717,40 +721,6 @@ public class customer_form extends javax.swing.JFrame {
         
     }//GEN-LAST:event_tbl_shop_serMouseClicked
 
-    //Save Button
-    private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
-        
-        try
-        {
-            if(validation()==true)
-            {                
-                if(cmb_type.getSelectedIndex()==1)
-                {
-                    insertShopSertoDb();
-                }
-                else if(cmb_type.getSelectedIndex()==2)
-                {
-                    insertOrderSertoDb();                    
-                }
-                else if(cmb_type.getSelectedIndex()==0)
-                {
-                    JOptionPane.showMessageDialog(this, "Select your Service Type [Shop / Order]");                
-                }
-            }
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }        
-    }//GEN-LAST:event_btn_saveActionPerformed
-
-    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-        deleteCommonRecords();
-        deleteAllShopSerRecords();
-        deleteAllOrderSerRecords();
-        deleteAllOrderSerExpRecords();
-    }//GEN-LAST:event_btn_cancelActionPerformed
-
     private void cmb_brActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_brActionPerformed
         int cid_int = tblRowCount()+1;
         String cid_string = String.valueOf(cid_int);
@@ -775,6 +745,40 @@ public class customer_form extends javax.swing.JFrame {
     private void btn_add_order_serActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_order_serActionPerformed
         addOrderSerTable();
     }//GEN-LAST:event_btn_add_order_serActionPerformed
+
+    //Save Button
+    private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
+
+        try
+        {
+            if(validation()==true)
+            {
+                if(cmb_type.getSelectedIndex()==1)
+                {
+                    insertShopSertoDb();
+                }
+                else if(cmb_type.getSelectedIndex()==2)
+                {
+                    insertOrderSertoDb();
+                }
+                else if(cmb_type.getSelectedIndex()==0)
+                {
+                    JOptionPane.showMessageDialog(this, "Select your Service Type [Shop / Order]");
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btn_saveActionPerformed
+
+    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
+        deleteCommonRecords();
+        deleteAllShopSerRecords();
+        deleteAllOrderSerRecords();
+        deleteAllOrderSerExpRecords();
+    }//GEN-LAST:event_btn_cancelActionPerformed
 
     //Validation
     public boolean validation()
@@ -1268,8 +1272,8 @@ public class customer_form extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_order_ser4;
     private javax.swing.JLabel lbl_order_ser5;
     private javax.swing.JLabel lbl_order_ser6;
-    private javax.swing.JLabel lbl_order_ser7;
     private javax.swing.JLabel lbl_order_ser8;
+    private javax.swing.JLabel lbl_order_ser9;
     private javax.swing.JLabel lbl_phone;
     private javax.swing.JLabel lbl_shop_ser;
     private javax.swing.JLabel lbl_shop_ser1;
@@ -1288,7 +1292,7 @@ public class customer_form extends javax.swing.JFrame {
     private javax.swing.JTable tbl_shop_ser;
     private javax.swing.JTextField txt_cid;
     private javax.swing.JTextField txt_cname;
-    private javax.swing.JTextField txt_date;
+    private rojeru_san.componentes.RSDateChooser txt_date;
     private javax.swing.JTextField txt_dis;
     private javax.swing.JTextField txt_order_ser_exp_price;
     private javax.swing.JTextField txt_order_ser_price;
