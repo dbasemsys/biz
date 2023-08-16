@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package bizbuilder;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 /**
  *
  * @author THANATOS
@@ -39,12 +43,12 @@ public class signup extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btn_create = new javax.swing.JButton();
-        email = new javax.swing.JTextField();
-        username = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
+        txt_un = new javax.swing.JTextField();
         con_pw_show = new javax.swing.JCheckBox();
         pw_show = new javax.swing.JCheckBox();
-        confrim_pw = new javax.swing.JPasswordField();
-        password = new javax.swing.JPasswordField();
+        txt_cpw = new javax.swing.JPasswordField();
+        txt_pw = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -69,6 +73,11 @@ public class signup extends javax.swing.JFrame {
         btn_signin.setForeground(new java.awt.Color(102, 102, 255));
         btn_signin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/log-out.png"))); // NOI18N
         btn_signin.setText("SIGNIN");
+        btn_signin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_signinActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,10 +135,15 @@ public class signup extends javax.swing.JFrame {
         btn_create.setForeground(new java.awt.Color(255, 255, 255));
         btn_create.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user-account.png"))); // NOI18N
         btn_create.setText("Create Account");
+        btn_create.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_createActionPerformed(evt);
+            }
+        });
 
-        email.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 255)));
+        txt_email.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 255)));
 
-        username.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 255)));
+        txt_un.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 255)));
 
         con_pw_show.setBackground(new java.awt.Color(255, 255, 255));
         con_pw_show.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -137,6 +151,11 @@ public class signup extends javax.swing.JFrame {
         con_pw_show.setText("Show");
         con_pw_show.setToolTipText("");
         con_pw_show.setBorder(null);
+        con_pw_show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                con_pw_showActionPerformed(evt);
+            }
+        });
 
         pw_show.setBackground(new java.awt.Color(255, 255, 255));
         pw_show.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -144,10 +163,15 @@ public class signup extends javax.swing.JFrame {
         pw_show.setText("Show");
         pw_show.setToolTipText("");
         pw_show.setBorder(null);
+        pw_show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pw_showActionPerformed(evt);
+            }
+        });
 
-        confrim_pw.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 255)));
+        txt_cpw.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 255)));
 
-        password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 255)));
+        txt_pw.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 255)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -172,10 +196,10 @@ public class signup extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(password, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(username, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(confrim_pw, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_pw, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_un, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_email, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_cpw, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -193,21 +217,21 @@ public class signup extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_un, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_pw, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pw_show)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addGap(11, 11, 11)
-                .addComponent(confrim_pw, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_cpw, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(con_pw_show)
                 .addGap(6, 6, 6)
@@ -221,6 +245,194 @@ public class signup extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createActionPerformed
+        // TODO add your handling code here:
+         if( validateSignup()== true)
+        {
+            if(checkDuplicateUsers()== true)
+            {
+                JOptionPane.showMessageDialog(this, "Username Already Exists");
+            }
+            else if(passwordMatch() == true)
+            {
+                JOptionPane.showMessageDialog(this, "Password doen't matched");
+            }
+            else
+            {
+                inserSignupDetails();                
+            }
+        }
+    }//GEN-LAST:event_btn_createActionPerformed
+
+    private void btn_signinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signinActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        
+        signin s = new signin();
+        s.setVisible(true);
+    }//GEN-LAST:event_btn_signinActionPerformed
+
+    private void pw_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pw_showActionPerformed
+        // TODO add your handling code here:
+        if (pw_show.isSelected()) 
+        {
+            txt_pw.setEchoChar((char) 0); // Show characters            
+        }
+        else 
+        {
+            txt_pw.setEchoChar('\u25cf'); // Hide characters            
+        }
+    }//GEN-LAST:event_pw_showActionPerformed
+
+    private void con_pw_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_con_pw_showActionPerformed
+        // TODO add your handling code here:
+        if (con_pw_show.isSelected()) 
+        {
+            txt_cpw.setEchoChar((char) 0); // Show characters
+        } else 
+        {
+            txt_cpw.setEchoChar('\u25cf'); // Hide characters
+        }
+    }//GEN-LAST:event_con_pw_showActionPerformed
+    //insert user details
+    public void inserSignupDetails()
+    {
+        String fn = txt_un.getText();        
+        String email = txt_email.getText();
+        String pw = txt_pw.getText();
+        
+        try
+        {
+            //Class.forName("com.mysql.jdbc.Driver");
+            //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/biz","root","");
+            Connection con = DBConnection.getConnection();
+            /*
+            if(con !=null)
+            {
+                JOptionPane.showMessageDialog(this, "TRUE");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Fail");
+            }
+            */
+            
+            String sql = "insert into user (user_name,email,password) values(?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            
+            pst.setString(1,fn);
+            pst.setString(2,email);
+            pst.setString(3,pw);            
+                    
+            int updateRowCount = pst.executeUpdate();
+            
+            if(updateRowCount>0)
+            {
+                JOptionPane.showMessageDialog(this, "User Account Created");
+                signin s = new signin();
+                s.setVisible(true);
+                this.dispose();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Failed to Create Account");
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+            
+    }
+    
+//Validation    
+    public boolean validateSignup()
+    {
+        String fn = txt_un.getText();        
+        String email = txt_email.getText();
+        String pw = txt_pw.getText();
+        
+        if(fn.equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Enter User Name");
+            return false;
+        }
+        if(email.equals("") || !email.matches("^.+@.+\\..+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Enter Valid Email");
+            return false;
+        }
+        if(pw.equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Enter Password");
+            return false;
+        }
+        
+        return true;
+    }
+    
+//Check Duplicate Users
+    public boolean checkDuplicateUsers()
+    {
+        String fn = txt_un.getText();
+        boolean isExist = true;
+        
+        try
+        {
+            Connection con = DBConnection.getConnection();
+            /*
+            if(con !=null)
+            {
+                JOptionPane.showMessageDialog(this, "TRUE");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Fail");
+            }
+            */
+            String sql = "select * from user where user_name =?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            
+            pst.setString(1,fn);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next())
+            {
+                isExist = true;
+            }
+            else
+            {
+                isExist = false;
+            }
+            
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+            
+        
+        return isExist;
+    }
+    
+//Confirm Password Matching
+    public boolean passwordMatch()
+    {
+        boolean matched = true;
+        
+        String pw = txt_pw.getText();
+        String cpw = txt_cpw.getText();
+        
+        if(!pw.equals(cpw))
+        {
+            matched = true;            
+        }
+        else
+        {
+            matched = false;
+        }
+        
+        return matched;
+    }
     /**
      * @param args the command line arguments
      */
@@ -260,8 +472,6 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JButton btn_create;
     private javax.swing.JButton btn_signin;
     private javax.swing.JCheckBox con_pw_show;
-    private javax.swing.JPasswordField confrim_pw;
-    private javax.swing.JTextField email;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -272,8 +482,10 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField password;
     private javax.swing.JCheckBox pw_show;
-    private javax.swing.JTextField username;
+    private javax.swing.JPasswordField txt_cpw;
+    private javax.swing.JTextField txt_email;
+    private javax.swing.JPasswordField txt_pw;
+    private javax.swing.JTextField txt_un;
     // End of variables declaration//GEN-END:variables
 }
