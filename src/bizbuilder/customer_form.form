@@ -127,8 +127,8 @@
                               <Component id="txt_cname" alignment="1" max="32767" attributes="0"/>
                               <Component id="txt_cid" alignment="1" max="32767" attributes="0"/>
                               <Component id="cmb_br" max="32767" attributes="0"/>
+                              <Component id="txt_date" max="32767" attributes="0"/>
                               <Component id="txt_price" max="32767" attributes="0"/>
-                              <Component id="txt_date" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
@@ -164,11 +164,8 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                  <Component id="lbl_date" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="txt_date" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="lbl_date" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_date" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -357,7 +354,10 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="txt_date">
+                <Component class="rojeru_san.componentes.RSDateChooser" name="txt_date">
+                  <Properties>
+                    <Property name="placeholder" type="java.lang.String" value="choose date"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
