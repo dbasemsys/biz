@@ -346,14 +346,14 @@ public class customer_details extends javax.swing.JFrame {
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"dfdfsfsd", "sdfdsfsdf", "daf", "Shop"},
-                {"adf", "asdf", "hreh", "Ordering"},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"dfdfsfsd", "sdfdsfsdf", "daf", "Shop", null, null, null, null, null, null},
+                {"adf", "asdf", "hreh", "Ordering", null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10"
             }
         ));
         jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -362,8 +362,22 @@ public class customer_details extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable4);
+        if (jTable4.getColumnModel().getColumnCount() > 0) {
+            jTable4.getColumnModel().getColumn(0).setMinWidth(150);
+            jTable4.getColumnModel().getColumn(1).setMinWidth(150);
+            jTable4.getColumnModel().getColumn(2).setMinWidth(150);
+            jTable4.getColumnModel().getColumn(3).setMinWidth(150);
+            jTable4.getColumnModel().getColumn(4).setMinWidth(150);
+            jTable4.getColumnModel().getColumn(5).setMinWidth(150);
+            jTable4.getColumnModel().getColumn(6).setMinWidth(150);
+            jTable4.getColumnModel().getColumn(7).setMinWidth(150);
+            jTable4.getColumnModel().getColumn(8).setMinWidth(150);
+            jTable4.getColumnModel().getColumn(9).setMinWidth(150);
+        }
+        jTable4.getAccessibleContext().setAccessibleParent(scrollpane1);
 
         scrollpane1.setViewportView(jScrollPane1);
+        jScrollPane1.getAccessibleContext().setAccessibleParent(null);
 
         getContentPane().add(scrollpane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
 
