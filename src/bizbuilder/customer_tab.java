@@ -105,7 +105,7 @@ public class customer_tab extends javax.swing.JFrame {
         Customer.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         Customer.setForeground(new java.awt.Color(255, 255, 255));
         Customer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user (1).png"))); // NOI18N
-        Customer.setText("Customer");
+        Customer.setText("Customer Menu");
         Customer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Customer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
