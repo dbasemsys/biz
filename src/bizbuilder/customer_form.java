@@ -4,6 +4,8 @@ package bizbuilder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,7 +18,9 @@ public class customer_form extends javax.swing.JFrame {
         shop_ser_panel.setVisible(false);
         order_panel.setVisible(false);
         
-        
+        txt_cid.enable(false); 
+        txt_dis.setText("0.00");
+        txt_price.enable(false); 
     }
 
 
@@ -40,7 +44,7 @@ public class customer_form extends javax.swing.JFrame {
         txt_price = new javax.swing.JTextField();
         cmb_br = new rojerusan.RSComboMetro();
         lbl_order_ser8 = new javax.swing.JLabel();
-        txt_date = new rojeru_san.componentes.RSDateChooser();
+        txt_date = new com.toedter.calendar.JDateChooser();
         shop_ser_panel = new javax.swing.JPanel();
         txt_shop_ser_price = new javax.swing.JTextField();
         lbl_shop_ser = new javax.swing.JLabel();
@@ -146,8 +150,6 @@ public class customer_form extends javax.swing.JFrame {
         lbl_order_ser8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_order_ser8.setText("Price");
 
-        txt_date.setPlaceholder("choose date");
-
         javax.swing.GroupLayout common_panel1Layout = new javax.swing.GroupLayout(common_panel1);
         common_panel1.setLayout(common_panel1Layout);
         common_panel1Layout.setHorizontalGroup(
@@ -169,8 +171,8 @@ public class customer_form extends javax.swing.JFrame {
                     .addComponent(txt_cname)
                     .addComponent(txt_cid)
                     .addComponent(cmb_br, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_price))
+                    .addComponent(txt_price)
+                    .addComponent(txt_date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
 
@@ -201,7 +203,9 @@ public class customer_form extends javax.swing.JFrame {
                     .addComponent(cmb_type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(common_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_date)
+                    .addGroup(common_panel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(lbl_date))
                     .addComponent(txt_date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(common_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,9 +314,7 @@ public class customer_form extends javax.swing.JFrame {
                             .addGroup(shop_ser_panelLayout.createSequentialGroup()
                                 .addGroup(shop_ser_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_dis, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(shop_ser_panelLayout.createSequentialGroup()
-                                        .addComponent(lbl_order_ser9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lbl_order_ser9))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(15, 15, 15))))
         );
@@ -752,19 +754,20 @@ public class customer_form extends javax.swing.JFrame {
         try
         {
             if(validation()==true)
-            {
+            {                                                
                 if(cmb_type.getSelectedIndex()==1)
                 {
                     insertShopSertoDb();
                 }
                 else if(cmb_type.getSelectedIndex()==2)
                 {
-                    insertOrderSertoDb();
+                    insertOrderSertoDb();                    
                 }
                 else if(cmb_type.getSelectedIndex()==0)
                 {
-                    JOptionPane.showMessageDialog(this, "Select your Service Type [Shop / Order]");
-                }
+                    JOptionPane.showMessageDialog(this, "Select your Service Type [Shop / Order]");                
+                }  
+                txt_dis.setText("0.00");
             }
         }
         catch(Exception e)
@@ -803,6 +806,12 @@ public class customer_form extends javax.swing.JFrame {
         if(cmb_type.getSelectedIndex()==0)
         {
             JOptionPane.showMessageDialog(this, "Select Service Type");
+            return false;
+        }
+        Date s_date = txt_date.getDate();
+        if(s_date == null)
+        {
+            JOptionPane.showMessageDialog(this,"Select the Date");
             return false;
         }
         if(txt_dis.getText().equals("") )
@@ -981,7 +990,10 @@ public class customer_form extends javax.swing.JFrame {
     //Insert records to customer Table
     public void insertCustomerDetailstoDb()
     {
-                
+        double totPrice = setTotPrice();
+        String totalPrice = Double.toString(totPrice);
+        txt_price.setText(totalPrice);
+                        
         String br = cmb_br.getSelectedItem().toString();
         int cid = Integer.parseInt(txt_cid.getText());
         String cname = txt_cname.getText();        
@@ -989,6 +1001,10 @@ public class customer_form extends javax.swing.JFrame {
         double dis = Double.parseDouble(txt_dis.getText());
         double price = Double.parseDouble(txt_price.getText());
         //Write Code to Serviced_date ..................................... Write Code to Serviced_date
+        Date s_date = txt_date.getDate();
+        long l =  s_date.getTime();
+        java.sql.Date txt_date = new java.sql.Date(l);
+        
         String type = "";
         if(cmb_type.getSelectedIndex()==1)
         {
@@ -1003,22 +1019,23 @@ public class customer_form extends javax.swing.JFrame {
         {
             Connection con = DBConnection.getConnection();
             
-            String sql = "insert into customer (customer_id ,customer_name,phone,service_type,branch,discount,total_price) values(?,?,?,?,?,?,?)";
+            String sql = "insert into customer (customer_id ,customer_name,phone,service_type,serviced_date,branch,discount,total_price) values(?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             
             pst.setInt(1,cid);
             pst.setString(2,cname);
             pst.setString(3,phone);  
             pst.setString(4,type); 
-            pst.setString(5,br); 
-            pst.setDouble(6,dis); 
-            pst.setDouble(7,price); 
+            pst.setDate(5,txt_date); 
+            pst.setString(6,br); 
+            pst.setDouble(7,dis); 
+            pst.setDouble(8,price); 
                     
             int updateRowCount = pst.executeUpdate();
             
             if(updateRowCount>0)
             {
-                JOptionPane.showMessageDialog(this, "Customer Details Saved");
+                JOptionPane.showMessageDialog(this, "Customer Details Saved in Customer Table");
             }
         }
         catch(Exception e)
@@ -1058,7 +1075,7 @@ public class customer_form extends javax.swing.JFrame {
 
                     pst.executeUpdate();
                 }
-                JOptionPane.showMessageDialog(this, "Records Are Saved");
+                JOptionPane.showMessageDialog(this, "Records Are Saved in Shop Services table");
                 
                 deleteCommonRecords();
                 deleteAllShopSerRecords();
@@ -1178,13 +1195,15 @@ public class customer_form extends javax.swing.JFrame {
         txt_phone.setText("");
         cmb_type.setSelectedIndex(0);
         //ServiceDate clear code should be added
-        txt_dis.setText("");
-        txt_price.setText("");
-        
+        Date s_date = txt_date.getDate();
+        txt_date.setDate(null);
+        txt_dis.setText("0.00");
+        txt_price.setText("");       
     }
     
     // Delete All Records from Shop Service Table
-    public void deleteAllShopSerRecords() {
+    public void deleteAllShopSerRecords() 
+    {
         DefaultTableModel model;
 
         try {
@@ -1201,7 +1220,8 @@ public class customer_form extends javax.swing.JFrame {
     }
 
     // Delete All Records from Order Service Table
-    public void deleteAllOrderSerRecords() {
+    public void deleteAllOrderSerRecords() 
+    {
         DefaultTableModel model;
 
         try {
@@ -1218,7 +1238,8 @@ public class customer_form extends javax.swing.JFrame {
     }
     
     // Delete All Records from Order Service Table
-    public void deleteAllOrderSerExpRecords() {
+    public void deleteAllOrderSerExpRecords() 
+    {
         DefaultTableModel model;
 
         try {
@@ -1232,6 +1253,116 @@ public class customer_form extends javax.swing.JFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error deleting records: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    //Insert records to shop_services Table
+    public double returnShopSerTotPrice()
+    {
+        double totPrice = 0;
+        double price = 0;
+        DefaultTableModel model;
+        
+        try
+        {    
+            model = (DefaultTableModel) tbl_shop_ser.getModel();
+
+            if(model.getRowCount()>0)
+            {      
+                for(int row=0; row<model.getRowCount();row++)
+                {
+                    price = (Double) model.getValueAt(row, 1);
+                    totPrice = totPrice+price;
+                }
+            }     
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error inserting records: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }     
+        return totPrice;
+    }
+    
+    //Insert records to order_services Table
+    public double returnOrderSerTotPrice()
+    {
+        double totPrice = 0;
+        double price = 0;
+        DefaultTableModel model;
+        
+        try
+        {    
+            model = (DefaultTableModel) tbl_order_ser.getModel();
+
+            if(model.getRowCount()>0)
+            {      
+                for(int row=0; row<model.getRowCount();row++)
+                {
+                    price = (Double) model.getValueAt(row, 1);
+                    totPrice = totPrice+price;
+                }
+            }  
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error inserting records: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }     
+        return totPrice;
+    }
+    
+    //Insert records to order_services Table
+    public double returnOrderSerExpTotPrice()
+    {
+        double totPrice = 0;
+        double price = 0;
+        DefaultTableModel model;
+        
+        try
+        {    
+            model = (DefaultTableModel) tbl_order_ser_exp.getModel();
+
+            if(model.getRowCount()>0)
+            {      
+                for(int row=0; row<model.getRowCount();row++)
+                {
+                    price = (Double) model.getValueAt(row, 1);
+                    totPrice = totPrice+price;
+                }
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error inserting records: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }     
+        return totPrice;
+    }
+    
+    public double setTotPrice()
+    {
+        //double price = Double.parseDouble(txt_price.getText().toString());
+        double totPrice = 0;
+        
+        
+        if(cmb_type.getSelectedIndex()==1)
+        {
+            double dis = Double.parseDouble(txt_dis.getText().toString());
+            double shopPrice = returnShopSerTotPrice();
+            
+            totPrice = shopPrice - dis;
+        }
+        else if(cmb_type.getSelectedIndex()==2)
+        {
+            double orderSerPrice = returnOrderSerTotPrice();
+            double orderExpPrice = returnOrderSerExpTotPrice();
+            totPrice = orderSerPrice - orderExpPrice;
+        }
+        else if(cmb_type.getSelectedIndex()==0)
+        {
+            txt_price.setText("0.00");
+        }
+        return totPrice;
     }
     
     public static void main(String args[]) {
@@ -1292,7 +1423,7 @@ public class customer_form extends javax.swing.JFrame {
     private javax.swing.JTable tbl_shop_ser;
     private javax.swing.JTextField txt_cid;
     private javax.swing.JTextField txt_cname;
-    private rojeru_san.componentes.RSDateChooser txt_date;
+    private com.toedter.calendar.JDateChooser txt_date;
     private javax.swing.JTextField txt_dis;
     private javax.swing.JTextField txt_order_ser_exp_price;
     private javax.swing.JTextField txt_order_ser_price;
