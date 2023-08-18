@@ -150,6 +150,9 @@ public class customer_form extends javax.swing.JFrame {
         lbl_order_ser8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_order_ser8.setText("Price");
 
+        txt_date.setBackground(new java.awt.Color(255, 255, 255));
+        txt_date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+
         javax.swing.GroupLayout common_panel1Layout = new javax.swing.GroupLayout(common_panel1);
         common_panel1.setLayout(common_panel1Layout);
         common_panel1Layout.setHorizontalGroup(
