@@ -18,66 +18,12 @@ public class employee_form extends javax.swing.JFrame {
      */
     public employee_form() {
         initComponents();
-        Work_Status.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-        visibility();
-    }
-});
-
         jLabel12.setVisible(false);
-        jLabel14.setVisible(false);
-        jLabel15.setVisible(false);
-        jLabel16.setVisible(false);
-        jLabel17.setVisible(false);
         Work_Status.setVisible(false);
-        Left_Date.setVisible(false);
-        EPF.setVisible(false);
-        EPF_Setteled.setVisible(false);
-        EPF_Pending.setVisible(false);
-        Setteled_Date.setVisible(false);
-    }
-    
-    public void visibility() {
-    String ID = Employee_Id.getText();
-    String Status = (String) Work_Status.getSelectedItem();
-
-    if(ID.equals("")){
-        Work_Status.setVisible(false);
-        jLabel12.setVisible(false);
-
-     if (Status.equals("Left")) {
-        
-        jLabel14.setVisible(true);
-        jLabel15.setVisible(true);
-        jLabel16.setVisible(true);
-        jLabel17.setVisible(true);
-        Left_Date.setVisible(true);
-        EPF.setVisible(true);
-        EPF_Setteled.setVisible(true);
-        EPF_Pending.setVisible(true);
-        Setteled_Date.setVisible(true);
-    } else {
-        jLabel12.setVisible(false);
-        jLabel14.setVisible(false);
-        jLabel15.setVisible(false);
-        jLabel16.setVisible(false);
-        jLabel17.setVisible(false);
-        Left_Date.setVisible(false);
-        EPF.setVisible(false);
-        EPF_Setteled.setVisible(false);
-        EPF_Pending.setVisible(false);
-        Setteled_Date.setVisible(false);
-    }
-    
-
-
-    }
-    else{
-        Work_Status.setVisible(false);
-        jLabel12.setVisible(true);}
         
     }
-
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,18 +55,9 @@ public class employee_form extends javax.swing.JFrame {
         Contact = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        Join_Date = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        Left_Date = new javax.swing.JTextField();
-        EPF = new javax.swing.JTextField();
-        Setteled_Date = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
         NIC = new javax.swing.JTextField();
-        EPF_Setteled = new javax.swing.JRadioButton();
-        EPF_Pending = new javax.swing.JTextField();
         Work_Status = new rojerusan.RSComboMetro();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -208,53 +145,18 @@ public class employee_form extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setText("Work Status");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel14.setText("Left Date");
-
-        Join_Date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Join_Date.setForeground(new java.awt.Color(102, 102, 255));
-        Join_Date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel15.setText("EPF");
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel16.setText("EPF Setteled or Not");
-
-        Left_Date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Left_Date.setForeground(new java.awt.Color(102, 102, 255));
-        Left_Date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-
-        EPF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        EPF.setForeground(new java.awt.Color(102, 102, 255));
-        EPF.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-
-        Setteled_Date.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Setteled_Date.setForeground(new java.awt.Color(102, 102, 255));
-        Setteled_Date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel17.setText("Setteled Date");
-
         NIC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         NIC.setForeground(new java.awt.Color(102, 102, 255));
         NIC.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
-
-        EPF_Setteled.setBackground(new java.awt.Color(204, 204, 255));
-        EPF_Setteled.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        EPF_Setteled.setForeground(new java.awt.Color(102, 102, 255));
-        EPF_Setteled.setText("Yes");
-        EPF_Setteled.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-
-        EPF_Pending.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        EPF_Pending.setForeground(new java.awt.Color(102, 102, 255));
-        EPF_Pending.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         Work_Status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Still working", "Left" }));
         Work_Status.setColorArrow(new java.awt.Color(102, 102, 255));
         Work_Status.setColorBorde(new java.awt.Color(102, 102, 255));
         Work_Status.setColorFondo(new java.awt.Color(102, 102, 255));
         Work_Status.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
+        jDateChooser1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -301,41 +203,13 @@ public class employee_form extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Work_Status, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Join_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(EPF_Setteled)
-                                    .addComponent(EPF, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Left_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel17)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Setteled_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel16)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Work_Status, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(EPF_Pending, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,32 +251,14 @@ public class employee_form extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel11)
-                    .addComponent(Join_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(Work_Status, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(Left_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(EPF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(EPF_Setteled))
-                .addGap(11, 11, 11)
-                .addComponent(EPF_Pending, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(Setteled_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
@@ -423,7 +279,7 @@ public class employee_form extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
@@ -475,27 +331,18 @@ public class employee_form extends javax.swing.JFrame {
     private javax.swing.JTextField Address;
     private javax.swing.JTextField Bank;
     private javax.swing.JTextField Contact;
-    private javax.swing.JTextField EPF;
-    private javax.swing.JTextField EPF_Pending;
-    private javax.swing.JRadioButton EPF_Setteled;
     private javax.swing.JTextField Employee_Id;
-    private javax.swing.JTextField Join_Date;
-    private javax.swing.JTextField Left_Date;
     private javax.swing.JTextField NIC;
     private javax.swing.JTextField Name;
     private javax.swing.JTextField Profile;
-    private javax.swing.JTextField Setteled_Date;
     private javax.swing.JTextField Work_Role;
     private rojerusan.RSComboMetro Work_Status;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
